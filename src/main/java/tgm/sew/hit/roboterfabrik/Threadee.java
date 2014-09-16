@@ -21,7 +21,7 @@ public class Threadee {
 	private Arm linkerArm;
 
 	public Threadee(int id, int herstellerID, Auge[] augen, Kettenantrieb kette, Rumpf rumpf, Arm[] arme) {
-
+		
 	}
 
 	public List<Bauteil> getBauteile() {
