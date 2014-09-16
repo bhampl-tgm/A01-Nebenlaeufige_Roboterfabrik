@@ -1,11 +1,17 @@
 package tgm.sew.hit.roboterfabrik.mitarbeiter;
 
+import java.util.UUID;
+
 public abstract class Mitarbeiter {
 
-	private int id;
+	private UUID id;
 
-	public int getId() {
-		return 0;
+	public Mitarbeiter(UUID id) {
+		this.id = id;
+	}
+	
+	public UUID getId() {
+		return this.id;
 	}
 
 }
