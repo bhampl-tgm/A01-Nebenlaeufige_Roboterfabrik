@@ -62,7 +62,7 @@
 		<scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
 		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
 		<plugins>
-			<!-- Copy Libraries into jar with te assembly plugin -->
+			<!-- Copy Libraries into jar with the assembly plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>

@@ -2,6 +2,12 @@ package tgm.sew.hit.roboterfabrik;
 
 import java.util.List;
 
+import tgm.sew.hit.roboterfabrik.bauteil.Arm;
+import tgm.sew.hit.roboterfabrik.bauteil.Auge;
+import tgm.sew.hit.roboterfabrik.bauteil.Bauteil;
+import tgm.sew.hit.roboterfabrik.bauteil.Kettenantrieb;
+import tgm.sew.hit.roboterfabrik.bauteil.Rumpf;
+
 public class Threadee {
 
 	private int id;

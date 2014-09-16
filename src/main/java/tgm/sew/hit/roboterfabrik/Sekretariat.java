@@ -2,6 +2,9 @@ package tgm.sew.hit.roboterfabrik;
 
 import java.util.List;
 
+import tgm.sew.hit.roboterfabrik.mitarbeiter.Lagermitarbeiter;
+import tgm.sew.hit.roboterfabrik.mitarbeiter.Montagemitarbeiter;
+
 public class Sekretariat {
 
 	private Lagermitarbeiter lagermitarbeiter;
@@ -11,18 +14,18 @@ public class Sekretariat {
 	private List<Threadee> threadees;
 
 	public Sekretariat(int anzahlMontagemitarbeiter) {
-
+		
 	}
 
 	public Lagermitarbeiter getLagermitarbeiter() {
 		return null;
 	}
 
-	public List getMontagemitarbeiter() {
+	public List<Montagemitarbeiter> getMontagemitarbeiter() {
 		return null;
 	}
 
-	public List getFertigeThreadees() {
+	public List<Threadee> getFertigeThreadees() {
 		return null;
 	}
 
