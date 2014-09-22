@@ -14,7 +14,7 @@ public class Sekretariat {
 	private List<Threadee> threadees;
 
 	public Sekretariat(int anzahlMontagemitarbeiter) {
-		this.lagermitarbeiter = new Lagermitarbeiter();
+		this.lagermitarbeiter = new Lagermitarbeiter(0);
 	}
 
 	public Lagermitarbeiter getLagermitarbeiter() {

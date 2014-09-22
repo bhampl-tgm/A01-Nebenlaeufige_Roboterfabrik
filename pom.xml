@@ -59,13 +59,7 @@
 
 	<!-- Build properties -->
 	<build>
-		<directory>${project.basedir}/target</directory>
-		<outputDirectory>${project.build.directory}/classes</outputDirectory>
-		<finalName>${project.artifactId}-${project.version}</finalName>
-		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
-		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
-		<scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
-		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+
 		<plugins>
 			<!-- Copy Libraries into jar with the assembly plugin -->
 			<plugin>
