@@ -59,36 +59,128 @@
 
 	<!-- Build properties -->
 	<build>
-
+		<resources>
+			<!-- add additional files (protocol, uml) and sourcecode to final jar -->
+			<resource>
+				<filtering>false</filtering>
+				<directory>src/main/java</directory>
+			</resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>files/</directory>
+				<includes>
+					<include>**/*.pdf</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
-			<!-- Copy Libraries into jar with the assembly plugin -->
+			<!-- Set the compiler targets to 1.8 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<!-- download javadocs from repos for easier development -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+			<!-- Clean all previous build artifacts -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<verbose>true</verbose>
+					<filesets>
+						<fileset>
+							<!-- clean final folder -->
+							<directory>${basedir}/final</directory>
+							<followSymlinks>false</followSymlinks>
+							<includes>
+								<include>*</include>
+								<include>*/</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<!-- generate javadoc and get it ready for packaging -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<reportOutputDirectory>${basedir}/target/classes</reportOutputDirectory>
+					<destDir>javadoc</destDir>
+					<show>public</show>
+				</configuration>
 				<executions>
 					<execution>
-						<id>create-my-bundle</id>
+						<id>generate-javadoc</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- pack dependencies into final jar and set main class -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>shadeing-jar</id>
 						<phase>package</phase>
 						<goals>
-							<goal>single</goal>
+							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<descriptorRefs>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
-							</descriptorRefs>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>tgm.sew.hit.roboterfabrik.Simulation</mainClass>
+								</transformer>
+							</transformers>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
+			<!-- copy packaged jar to the final folder -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
 				<executions>
 					<execution>
-						<id>attach-sources</id>
+						<id>copy-packaged-jar</id>
+						<phase>install</phase>
 						<goals>
-							<goal>jar</goal>
+							<goal>copy</goal>
 						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+									<type>${project.packaging}</type>
+									<destFileName>${project.artifactId}.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${basedir}/final/</outputDirectory>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

@@ -18,11 +18,11 @@ public class Lager {
 	private CSVFile antriebe;
 	private CSVFile ruempfe;
 
-	public Lager() {
-		File fAugen = new File("data", "augen.csv");
-		File fArme = new File("data", "arme.csv");
-		File fAntriebe = new File("data", "arme.csv");
-		File fRuempfe = new File("data", "ruempfe.csv");
+	public Lager(String dataDir) {
+		File fAugen = new File(dataDir, "augen.csv");
+		File fArme = new File(dataDir, "arme.csv");
+		File fAntriebe = new File(dataDir, "arme.csv");
+		File fRuempfe = new File(dataDir, "ruempfe.csv");
 		
 		fAugen.mkdirs();
 		
