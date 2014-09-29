@@ -1,36 +1,41 @@
 package tgm.sew.hit.roboterfabrik;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import tgm.sew.hit.roboterfabrik.mitarbeiter.Lagermitarbeiter;
-import tgm.sew.hit.roboterfabrik.mitarbeiter.Montagemitarbeiter;
+import tgm.sew.hit.roboterfabrik.mitarbeiter.Mitarbeiter;
+import tgm.sew.hit.roboterfabrik.mitarbeiter.MitarbeiterTyp;
 
 public class Sekretariat {
 
-	private Lagermitarbeiter lagermitarbeiter;
-
-	private List<Montagemitarbeiter> montagemitarebiter;
+	private Mitarbeiter lagermitarbeiter;
+	private List<Mitarbeiter> montagemitarbeiter;
 
 	private List<Threadee> threadees;
 
 	public Sekretariat(int anzahlMontagemitarbeiter) {
-		this.lagermitarbeiter = new Lagermitarbeiter(0);
+		this.lagermitarbeiter = new Mitarbeiter(MitarbeiterTyp.LAGER, 0);
+		this.montagemitarbeiter = new ArrayList<Mitarbeiter>();
+		this.threadees = new ArrayList<Threadee>();
+
+		for (int i = 0; i < anzahlMontagemitarbeiter; i++)
+			montagemitarbeiterEinstellen();
 	}
 
-	public Lagermitarbeiter getLagermitarbeiter() {
-		return null;
+	public Mitarbeiter getLagermitarbeiter() {
+		return this.lagermitarbeiter;
 	}
 
-	public List<Montagemitarbeiter> getMontagemitarbeiter() {
-		return null;
+	public List<Mitarbeiter> getMontagemitarbeiter() {
+		return this.montagemitarbeiter;
 	}
 
 	public List<Threadee> getFertigeThreadees() {
-		return null;
+		return this.threadees;
 	}
 
 	public void montagemitarbeiterEinstellen() {
-
+		this.montagemitarbeiter.add(new Mitarbeiter(MitarbeiterTyp.MONTAGE, this.montagemitarbeiter.size() + 1));
 	}
 
 }

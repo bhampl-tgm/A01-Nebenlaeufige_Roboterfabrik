@@ -23,8 +23,8 @@ public class RoboterFabrikArgumentParser {
 	 * 
 	 * @param args
 	 *            argumente, die geparst werde soll
-	 * @return eine {@link Map}, die alle für uns notwendige Parameter
-	 *         zurückgibt
+	 * @return eine {@link Map}, die alle fuer uns notwendige Parameter
+	 *         zurueckgibt
 	 */
 	@SuppressWarnings("static-access")
 	public static Map<String, String> parseArgs(String[] args) {

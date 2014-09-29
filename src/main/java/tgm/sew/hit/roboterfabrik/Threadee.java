@@ -1,45 +1,30 @@
 package tgm.sew.hit.roboterfabrik;
 
-import java.util.List;
-
-import tgm.sew.hit.roboterfabrik.bauteil.Arm;
-import tgm.sew.hit.roboterfabrik.bauteil.Auge;
 import tgm.sew.hit.roboterfabrik.bauteil.Bauteil;
-import tgm.sew.hit.roboterfabrik.bauteil.Kettenantrieb;
-import tgm.sew.hit.roboterfabrik.bauteil.Rumpf;
 
 public class Threadee {
 
 	private int id;
+	private int herstellerId;
 
-	private int herstellerID;
-
-	private Auge links;
-
-	private Auge rechts;
-
-	private Rumpf rumpf;
-
-	private Kettenantrieb antrieb;
-
-	private Arm rechterArm;
-
-	private Arm linkerArm;
-
-	public Threadee(int id, int herstellerID, Auge[] augen, Kettenantrieb kette, Rumpf rumpf, Arm[] arme) {
-		
+	private Bauteil[] teile;
+	
+	public Threadee(int id, int herstellerId, Bauteil[] teile) {
+		this.id = id;
+		this.herstellerId = herstellerId;
+		this.teile = teile;
 	}
 
-	public List<Bauteil> getBauteile() {
-		return null;
+	public Bauteil[] getBauteile() {
+		return this.teile;
 	}
 
-	public int getID() {
-		return 0;
+	public int getId() {
+		return this.id;
 	}
 
-	public int getHerstellerID() {
-		return 0;
+	public int getHerstellerId() {
+		return this.herstellerId;
 	}
 
 }
