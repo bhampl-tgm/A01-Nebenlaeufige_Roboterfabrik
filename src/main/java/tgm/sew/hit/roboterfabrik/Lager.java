@@ -22,6 +22,7 @@ public class Lager {
 	private CSVFile arme;
 	private CSVFile antriebe;
 	private CSVFile ruempfe;
+	private CSVFile auslieferung;
 
 	/**
 	 * 
@@ -36,7 +37,8 @@ public class Lager {
 			File fArme = new File(dataDir, "arme.csv");
 			File fAntriebe = new File(dataDir, "arme.csv");
 			File fRuempfe = new File(dataDir, "ruempfe.csv");
-
+			File fAuslieferung = new File(dataDir, "auslieferung.csv");
+			
 			// Verzeichnise werden erstellt falls nicht vorhanden
 			fAugen.mkdirs();
 
@@ -46,6 +48,7 @@ public class Lager {
 				fArme.createNewFile();
 				fAntriebe.createNewFile();
 				fRuempfe.createNewFile();
+				fAuslieferung.createNewFile();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -54,6 +57,7 @@ public class Lager {
 			this.arme = new CSVFile(fArme);
 			this.antriebe = new CSVFile(fAntriebe);
 			this.ruempfe = new CSVFile(fRuempfe);
+			this.auslieferung = new CSVFile(fAuslieferung);
 		}
 	}
 
@@ -61,7 +65,8 @@ public class Lager {
 	 * 
 	 * Fuegt ein Bauteil ins zum Typ gehoerenden File hinzu
 	 * 
-	 * @param t Das hinzuzufuegende Teil
+	 * @param t
+	 *            Das hinzuzufuegende Teil
 	 */
 	public void addTeil(Bauteil t) {
 		CSVFile file = null;
@@ -89,9 +94,58 @@ public class Lager {
 
 	/**
 	 * 
+	 * Ueberprueft ob ein oder mehrere (bis zu amount) Teile des Typs im Lager liegen.
+	 * 
+	 * @param t Der Bauteiltyp
+	 * @param amount Wie oft
+	 * @return Ob das Teil im Lager liegt
+	 */
+	public boolean containsTeil(BauteilTyp t, int amount) {
+		CSVFile file = null;
+
+		switch (t) {
+		case AUGE:
+			file = this.augen;
+			break;
+		case ARM:
+			file = this.arme;
+			break;
+		case KETTENANTRIEB:
+			file = this.antriebe;
+			break;
+		case RUMPF:
+			file = this.ruempfe;
+		}
+
+		try {
+			boolean contains = false;
+			CSVLine last = file.getLastLine();
+			if (last.toString().length() != 0)
+				file.deleteLastLine();
+			else
+				return false;
+			
+			if (last.toString().length() != 0)
+				contains = true;
+			else
+				return false;
+			
+			file.writeLine(last);
+			
+			return contains;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+
+	/**
+	 * 
 	 * Gibt das naechste Bauteil mit dem angegebenen Typ zurueck
 	 * 
-	 * @param t Der Typ des Bauteils
+	 * @param t
+	 *            Der Typ des Bauteils
 	 * @return Das neachste Bauteil
 	 */
 	public Bauteil getBauteil(BauteilTyp t) {
@@ -120,5 +174,19 @@ public class Lager {
 		}
 
 		return null;
+	}
+	
+	/**
+	 * 
+	 * Speicher einen Threadee
+	 * 
+	 * @param t Der Threadee der gepseichert werden soll
+	 */
+	public void threadeeAblegen(Threadee t) {
+		try {
+			this.auslieferung.writeRaw(t.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

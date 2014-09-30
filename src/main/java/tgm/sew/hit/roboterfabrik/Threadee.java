@@ -34,4 +34,17 @@ public class Threadee {
 		return this.herstellerId;
 	}
 
+	public String toString() {
+		String out = "";
+		
+		out += "Threadee-ID" + this.id + ",Mitarbeiter-ID" + this.herstellerId + ",";
+		
+		for (Bauteil t : this.teile) {
+			out += t.toString() + ",";
+		}
+		
+		out = out.substring(0, out.lastIndexOf(','));
+		
+		return out;
+	}
 }

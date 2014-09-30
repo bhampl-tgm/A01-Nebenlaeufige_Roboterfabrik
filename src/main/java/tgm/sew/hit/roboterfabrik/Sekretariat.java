@@ -3,8 +3,9 @@ package tgm.sew.hit.roboterfabrik;
 import java.util.ArrayList;
 import java.util.List;
 
+import tgm.sew.hit.roboterfabrik.mitarbeiter.Lagermitarbeiter;
 import tgm.sew.hit.roboterfabrik.mitarbeiter.Mitarbeiter;
-import tgm.sew.hit.roboterfabrik.mitarbeiter.MitarbeiterTyp;
+import tgm.sew.hit.roboterfabrik.mitarbeiter.Montagemitarbeiter;
 
 /**
  * 
@@ -19,9 +20,12 @@ public class Sekretariat {
 	private List<Mitarbeiter> montagemitarbeiter;
 
 	private List<Threadee> threadees;
+	
+	private Lager lager;
 
-	public Sekretariat(int anzahlMontagemitarbeiter) {
-		this.lagermitarbeiter = new Mitarbeiter(MitarbeiterTyp.LAGER, 0);
+	public Sekretariat(int anzahlMontagemitarbeiter, String lagerVerzeichnis) {
+		this.lager = new Lager(lagerVerzeichnis);
+		this.lagermitarbeiter = new Lagermitarbeiter(0, this.lager);
 		this.montagemitarbeiter = new ArrayList<Mitarbeiter>();
 		this.threadees = new ArrayList<Threadee>();
 
@@ -42,7 +46,7 @@ public class Sekretariat {
 	}
 
 	public void montagemitarbeiterEinstellen() {
-		this.montagemitarbeiter.add(new Mitarbeiter(MitarbeiterTyp.MONTAGE, this.montagemitarbeiter.size() + 1));
+		this.montagemitarbeiter.add(new Montagemitarbeiter(this.montagemitarbeiter.size() + 1));
 	}
 
 }

@@ -77,14 +77,25 @@ public class CSVFile {
 	}
 
 	/**
-	 * Schreibt Zeile ins File
+	 * Schreibt eine {@link CSVLine} ins File
 	 * 
 	 * @param line
 	 *            CSV die ins File gespeichert wird.
 	 * @throws IOException
 	 */
 	public void writeLine(CSVLine line) throws IOException {
-		this.raf.writeBytes(line.toString() + "\n");
+		this.raf.writeBytes(line.toString() + "\r\n");
+	}
+	
+	/**
+	 * 
+	 * Schreibt ungeparsets CSV ins file
+	 * 
+	 * @param rawCSV CSV String
+	 * @throws IOException 
+	 */
+	public void writeRaw(String rawCSV) throws IOException {
+		this.raf.writeBytes(rawCSV + "\r\n");
 	}
 
 	/**

@@ -41,10 +41,10 @@ public class ExtendedRAF extends RandomAccessFile {
 
 		return builder.toString();
 	}
-
+	
 	/**
 	 * 
-	 * Deletes the last line from a file.
+	 * Loescht die letzte Zeile aus einem File
 	 * 
 	 * @throws IOException
 	 */

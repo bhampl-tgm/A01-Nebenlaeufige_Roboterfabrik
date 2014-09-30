@@ -2,23 +2,18 @@ package tgm.sew.hit.roboterfabrik.mitarbeiter;
 
 /**
  * 
- * Mitarbeiter welcher durch seinen Typen und eine eindeutige Id
+ * Mitarbeiter welcher durch eine eindeutige Id
  * identifiziert wird.
  * 
  * @author Stefan Geyer
  * @version 1.0
  */
-public class Mitarbeiter {
+public abstract class Mitarbeiter {
 
-	private MitarbeiterTyp typ;
 	private int id;
 
-	public Mitarbeiter(MitarbeiterTyp typ, int id) {
+	public Mitarbeiter(int id) {
 		this.id = id;
-	}
-	
-	public MitarbeiterTyp getTyp() {
-		return this.typ;
 	}
 	
 	public int getId() {
