@@ -8,12 +8,22 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * 
+ * Diese Klasse hat das {@link ExtendedRAF} und die aus dem File geparste {@link CSVData}
+ * 
+ * @author Stefan Geyer
+ * @version 1.0
+ */
 public class CSVFile {
 
 	private File file;
 	private ExtendedRAF raf;
 	private CSVData data;
 
+	/**
+	 * @param f File aus dem gelesen und auf dem schrieben wird.
+	 */
 	public CSVFile(File f) {
 		this.file = f;
 		this.data = new CSVData();

@@ -2,6 +2,13 @@ package tgm.sew.hit.roboterfabrik;
 
 import tgm.sew.hit.roboterfabrik.bauteil.Bauteil;
 
+/**
+ * 
+ * Threadee der durch den Montagemitarbeiter hergestellt wird.
+ * 
+ * @author Stefan Geyer
+ * @version 1.0
+ */
 public class Threadee {
 
 	private int id;

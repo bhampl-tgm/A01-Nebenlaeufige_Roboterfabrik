@@ -4,36 +4,28 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * 
+ * Erwitert das {@link RandomAccessFile} um die Moeglichkeit die letzte Zeile
+ * zu lesen und zu loeschen.
+ * 
+ * @author Stefan Geyer
+ * @version 1.0
+ */
 public class ExtendedRAF extends RandomAccessFile {
 
 	public ExtendedRAF(File file, String mode) throws FileNotFoundException {
 		super(file, mode);
 	}
 
-	public String[] readLastLines(int amount) throws IOException {
-		List<String> lines = new ArrayList<String>();
-		StringBuilder builder = new StringBuilder();
-		long length = this.length() - 1;
-		this.seek(length);
-		for (long seek = length; seek >= 0; --seek) {
-			this.seek(seek);
-			char c = (char) this.read();
-			builder.append(c);
-			if (c == '\n') {
-				builder = builder.reverse();
-				lines.add(builder.toString());
-				if (lines.size() >= amount)
-					builder = new StringBuilder();
-			}
-
-		}
-		
-		return lines.toArray(new String[0]);
-	}
-
+	/**
+	 * 
+	 * Liesst die letzte Zeile aus einem File
+	 * 
+	 * @return Die letzte Zeile
+	 * @throws IOException
+	 */
 	public String readLastLine() throws IOException {
 		StringBuilder builder = new StringBuilder();
 		long length = this.length() - 1;
@@ -50,6 +42,12 @@ public class ExtendedRAF extends RandomAccessFile {
 		return builder.toString();
 	}
 
+	/**
+	 * 
+	 * Deletes the last line from a file.
+	 * 
+	 * @throws IOException
+	 */
 	public void deleteLastLine() throws IOException {
 		long length = this.length() - 1;
 		byte b = this.readByte();

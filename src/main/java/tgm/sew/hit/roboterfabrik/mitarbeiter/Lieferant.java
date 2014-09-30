@@ -5,6 +5,15 @@ import java.util.Random;
 import tgm.sew.hit.roboterfabrik.bauteil.Bauteil;
 import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
 
+/**
+ * 
+ * Lieferant der ein Teil ans Lager liefert.
+ * Die Klasse simuliert das erhalten eines weitern Teils
+ * durch das aufrufen von neuesTeil()
+ * 
+ * @author Stefan Geyer
+ * @version 1.0
+ */
 public class Lieferant {
 
 	private Bauteil teil;

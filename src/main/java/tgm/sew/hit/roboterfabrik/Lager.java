@@ -8,6 +8,14 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
 import tgm.sew.hit.roboterfabrik.util.csv.CSVFile;
 import tgm.sew.hit.roboterfabrik.util.csv.CSVLine;
 
+/**
+ * 
+ * Lager in welchem alle Bauteile gespeichert werden. Jeder Teiltyp wird in ein
+ * anderes File geschrieben.
+ * 
+ * @author Stefan Geyer
+ * @version 1.0
+ */
 public class Lager {
 
 	private CSVFile augen;
@@ -15,43 +23,60 @@ public class Lager {
 	private CSVFile antriebe;
 	private CSVFile ruempfe;
 
+	/**
+	 * 
+	 * Erstellt ein neues Lager
+	 * 
+	 * @param dataDir
+	 *            Das Verzeichnis in welches die Files gespeichert werden
+	 */
 	public Lager(String dataDir) {
-		File fAugen = new File(dataDir, "augen.csv");
-		File fArme = new File(dataDir, "arme.csv");
-		File fAntriebe = new File(dataDir, "arme.csv");
-		File fRuempfe = new File(dataDir, "ruempfe.csv");
+		if (dataDir != null) {
+			File fAugen = new File(dataDir, "augen.csv");
+			File fArme = new File(dataDir, "arme.csv");
+			File fAntriebe = new File(dataDir, "arme.csv");
+			File fRuempfe = new File(dataDir, "ruempfe.csv");
 
-		fAugen.mkdirs();
+			// Verzeichnise werden erstellt falls nicht vorhanden
+			fAugen.mkdirs();
 
-		try {
-			fAugen.createNewFile();
-			fArme.createNewFile();
-			fAntriebe.createNewFile();
-			fRuempfe.createNewFile();
-		} catch (IOException e) {
-			e.printStackTrace();
+			// Files erstellen
+			try {
+				fAugen.createNewFile();
+				fArme.createNewFile();
+				fAntriebe.createNewFile();
+				fRuempfe.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			this.augen = new CSVFile(fAugen);
+			this.arme = new CSVFile(fArme);
+			this.antriebe = new CSVFile(fAntriebe);
+			this.ruempfe = new CSVFile(fRuempfe);
 		}
-
-		this.augen = new CSVFile(fAugen);
-		this.arme = new CSVFile(fArme);
-		this.antriebe = new CSVFile(fAntriebe);
-		this.ruempfe = new CSVFile(fRuempfe);
 	}
 
+	/**
+	 * 
+	 * Fuegt ein Bauteil ins zum Typ gehoerenden File hinzu
+	 * 
+	 * @param t Das hinzuzufuegende Teil
+	 */
 	public void addTeil(Bauteil t) {
 		CSVFile file = null;
 
-		switch (t.getClass().getName()) {
-		case "Auge":
+		switch (t.getTyp()) {
+		case AUGE:
 			file = this.augen;
 			break;
-		case "Arm":
+		case ARM:
 			file = this.arme;
 			break;
-		case "Kettenantrieb":
+		case KETTENANTRIEB:
 			file = this.antriebe;
 			break;
-		case "Rumpf":
+		case RUMPF:
 			file = this.ruempfe;
 		}
 
@@ -62,6 +87,13 @@ public class Lager {
 		}
 	}
 
+	/**
+	 * 
+	 * Gibt das naechste Bauteil mit dem angegebenen Typ zurueck
+	 * 
+	 * @param t Der Typ des Bauteils
+	 * @return Das neachste Bauteil
+	 */
 	public Bauteil getBauteil(BauteilTyp t) {
 
 		try {

@@ -3,6 +3,13 @@ package tgm.sew.hit.roboterfabrik.util.csv;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * Sammlung von {@link CSVLine}s
+ *  
+ * @author Stefan Geyer
+ * @version 1.0
+ */
 public class CSVData {
 
 	public List<CSVLine> lines;

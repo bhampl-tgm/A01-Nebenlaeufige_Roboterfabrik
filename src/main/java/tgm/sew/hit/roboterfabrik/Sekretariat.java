@@ -6,6 +6,13 @@ import java.util.List;
 import tgm.sew.hit.roboterfabrik.mitarbeiter.Mitarbeiter;
 import tgm.sew.hit.roboterfabrik.mitarbeiter.MitarbeiterTyp;
 
+/**
+ * 
+ * Sekretariat in welchem die Mitarbeiter und die fertigen {@link Threadee}s
+ * 
+ * @author Stefan Geyer
+ * @version 1.0
+ */
 public class Sekretariat {
 
 	private Mitarbeiter lagermitarbeiter;
