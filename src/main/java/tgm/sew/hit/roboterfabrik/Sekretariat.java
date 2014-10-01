@@ -86,7 +86,7 @@ public class Sekretariat {
 	 * Getter für {@link Lieferant}
 	 */
 	public void lieferantEinstellen() {
-		this.lieferant.add(new Lieferant(this.lieferant.size() + 1));
+		this.lieferant.add(new Lieferant(this.lieferant.size() + 1,(Lagermitarbeiter) getLagermitarbeiter()));
 
 	}
 

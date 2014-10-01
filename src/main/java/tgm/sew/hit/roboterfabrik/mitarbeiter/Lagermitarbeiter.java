@@ -70,7 +70,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 *            {@link Threadee} der eingelagert wird
 	 */
 	public void threadeeEinlagern(Threadee t) {
-		getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID "+t.getId()+" eingelagert.");
+		getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + t.getId() + " eingelagert.");
 		this.lager.threadeeAblegen(t);
 	}
 
@@ -80,18 +80,18 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 * @param teile
 	 *            die {@link Bauteil}
 	 */
-	public void teileEinlagern(Bauteil[] teile) {
+	public void teilEinlagern(Bauteil teil) {
 		synchronized (this.lager) {
 			// Teile werden nur eingelagert wenn sie nicht null sind
-			for (Bauteil b : teile) {
-				if (b != null) {
-					getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + b.getTyp().getName() + "eingelagert");
-					this.lager.addTeil(b);
 
-				} else {
-					// TODO log, das teil nicht ins lager geadded wird
-				}
+			if (teil != null) {
+				getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + "eingelagert");
+				this.lager.addTeil(teil);
+
+			} else {
+				// TODO log, das teil nicht ins lager geadded wird
 			}
+
 		}
 	}
 

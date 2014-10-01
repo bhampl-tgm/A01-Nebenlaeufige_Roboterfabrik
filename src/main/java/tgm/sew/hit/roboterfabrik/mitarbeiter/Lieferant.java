@@ -2,6 +2,7 @@ package tgm.sew.hit.roboterfabrik.mitarbeiter;
 
 import java.util.Random;
 
+import tgm.sew.hit.roboterfabrik.Sekretariat;
 import tgm.sew.hit.roboterfabrik.bauteil.Bauteil;
 import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
 
@@ -13,13 +14,15 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
  * @author Stefan Geyer, pmalik
  * @version 1.0
  */
-public class Lieferant implements Runnable{
+public class Lieferant implements Runnable {
 
 	private int id;
 	private boolean go;
 	private Bauteil teil;
+	private Lagermitarbeiter lm;
 
-	public Lieferant(int id) {
+	public Lieferant(int id, Lagermitarbeiter lm) {
+		this.lm = lm;
 		this.id = id;
 		this.teil = null;
 	}
@@ -42,15 +45,16 @@ public class Lieferant implements Runnable{
 		Mitarbeiter.getLogger().info("" + getClass() + " " + getId() + " hat das Bauteil " + typ.getName() + " geliefert.");
 		return new Bauteil(typ, data);
 	}
-	
+
 	@Override
 	public void run() {
-		while(go) {
+		while (go) {
 			if (this.teil == null)
 				this.teil = neuesTeil();
+			lm.teilEinlagern(this.teil);
 		}
 	}
-	
+
 	public synchronized Bauteil getTeil() {
 		Bauteil b = this.teil;
 		this.teil = null;
