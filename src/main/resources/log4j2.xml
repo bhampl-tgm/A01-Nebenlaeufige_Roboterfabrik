@@ -9,13 +9,13 @@
          <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} %class{36} %M %L - %msg%n" />
       </Console>
       <!-- Hier wird das logfile erstellt falls noch nicht existent und das vorhandene überschrieben! (bei append="true" wird das logfile falls vorhanden erweitert und nicht  überschrieben) -->
-      <File name="employee-log" fileName="${sys:log}/log.log" append="false">
-         <PatternLayout pattern="%d{HH:mm:ss.SSS} %c %msg%xEx%n" />
+      <File name="employee-log" fileName="log/employee.log" append="false">
+         <PatternLayout pattern="%d{HH:mm:ss.SSS} %c adsdda %msg%xEx%n" />
       </File>
    </Appenders>
    <!-- Noch nicht sicher was das root level bewirkt, nur das bei error, debug, ... nur error logs ins log schreiben,  nur trace schreibt jedes log mit -->
    <Loggers>
-      <Root level="FATAL">
+      <Root level="INFO">
          <!-- bei aufruf dieses loggers wird der appender mit dem namen employee-log verwendet, in diesem fall in ein file geschrieben -->
          <AppenderRef ref="employee-log"/>
          <AppenderRef ref="Console"/>
