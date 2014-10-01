@@ -27,7 +27,7 @@ public class Montagemitarbeiter extends Mitarbeiter {
 	 */
 	public Threadee baueThreadee(Bauteil[] teile, int threadeeId) {
 		if (new BauteilSammlung(teile).isValid()) {
-			logger.trace(""+getClass()+" "+getId()+" hat den Threadee mit der ID:"+threadeeId+"fertiggestellt.");
+			getLogger().trace(""+getClass()+" "+getId()+" hat den Threadee mit der ID:"+threadeeId+"fertiggestellt.");
 			return new Threadee(threadeeId, getId(), teile);
 		}
 		
