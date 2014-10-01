@@ -16,7 +16,7 @@ public class TestBauteil {
 		b.setData(new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 		b.getTyp();
 		b.setTyp(BauteilTyp.ARM);
-		b.toString();
+		assertEquals("Arm,0,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9", b.toString());
 	}
 	
 	@Test
@@ -25,10 +25,14 @@ public class TestBauteil {
 		pB = Bauteil.parseCSVString("Arm,0,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9");
 	}
 	
-	@Test(expected=NumberFormatException.class)
+	@Test
 	public void testBauteil3() {
-		Bauteil pB = Bauteil.parseCSVString(null);
-		pB = Bauteil.parseCSVString("Arm,0,bla");
+		Bauteil.parseCSVString("Arm,0,bla");
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testBauteil4() {
+		Bauteil.parseCSVString("Test,0,1");
 	}
 
 }

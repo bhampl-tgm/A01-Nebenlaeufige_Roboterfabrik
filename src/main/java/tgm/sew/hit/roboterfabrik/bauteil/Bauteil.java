@@ -1,5 +1,8 @@
 package tgm.sew.hit.roboterfabrik.bauteil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * Bauteil Klasse. In dieser Klassen werden der Typ und ein int Array
@@ -50,15 +53,24 @@ public class Bauteil {
 			// Nach , aufspliten
 			String[] items = line.split(",");
 			// Stelle 0 ist der typ, alles danach sind die daten
-			int[] data = new int[items.length - 1];
-
+			List<Integer> dataList = new ArrayList<Integer>();
+			int[] data = null;
+			
 			for (int i = 0; i < items.length; i++) {
 				try {
-					data[i] = Integer.parseInt(items[i]);
+					dataList.add(Integer.parseInt(items[i]));
 				} catch (NumberFormatException e) {
+					//TODO log invalid bauteil
+					return null;
 				}
 			}
-
+			
+			data = new int[dataList.size()];
+			
+			for (int i = 0; i < dataList.size(); i++) {
+				data[i] = dataList.get(i);
+			}
+			
 			// Bauteil vom String holen
 			BauteilTyp b = BauteilTyp.valueOf(items[0].toUpperCase());
 
