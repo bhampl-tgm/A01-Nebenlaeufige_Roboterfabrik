@@ -49,12 +49,15 @@ public class ExtendedRAF extends RandomAccessFile {
 	 * @throws IOException
 	 */
 	public void deleteLastLine() throws IOException {
-		long length = this.length() - 1;
+		long length = this.length();
+		//long length = this.length()-1; //bug fix versucht
 		byte b = this.readByte();
 		do {
 			length -= 1;
 			this.seek(length);
+			
 			b = this.readByte();
+			
 		} while (b != 10);
 		this.setLength(length + 1);
 	}
