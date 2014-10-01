@@ -24,6 +24,16 @@ public class Sekretariat {
 	private List<Lieferant> lieferant;
 	private Lager lager;
 
+	/**
+	 * Konstruktor des Sekretariats
+	 *
+	 * @param anzahlMontagemitarbeiter
+	 *            gibt die Anzahl der {@link Montagemitarbeiter} an
+	 * @param anzahlLieferanten
+	 *            git die Anzahl der {@link Lieferant} an
+	 * @param lagerVerzeichnis
+	 *            gibt das {@link Lager} Verzeichnis an
+	 */
 	public Sekretariat(int anzahlMontagemitarbeiter, int anzahlLieferanten, String lagerVerzeichnis) {
 		this.lager = new Lager(lagerVerzeichnis);
 		this.lagermitarbeiter = new Lagermitarbeiter(0, this.lager);

@@ -13,7 +13,7 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
  * @author Stefan Geyer, pmalik
  * @version 1.0
  */
-public class Lieferant {
+public class Lieferant implements Runnable{
 
 	private int id;
 	private boolean go;
@@ -47,5 +47,13 @@ public class Lieferant {
 
 	public void setGo(boolean go) {
 		this.go = go;
+	}
+
+	@Override
+	public void run() {
+		while(go) {
+			//TODO Lieferant fertig machen
+		}
+		
 	}
 }

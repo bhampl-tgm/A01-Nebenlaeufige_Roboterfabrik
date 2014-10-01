@@ -10,10 +10,17 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilSammlung;
  * zusammenzusetzen
  * 
  * @author Stefan Geyer
+ * @author Burkhard Hampl
  * @version 1.0
  */
 public class Montagemitarbeiter extends Mitarbeiter {
 
+	/**
+	 * Konstruktor des {@link Montagemitarbeiter}
+	 * 
+	 * @param id
+	 *            die id des {@link Montagemitarbeiter}
+	 */
 	public Montagemitarbeiter(int id) {
 		super(id);
 	}
@@ -36,5 +43,11 @@ public class Montagemitarbeiter extends Mitarbeiter {
 		}
 
 		return null;
+	}
+
+	@Override
+	public void run() {
+		// TODO Montagemitarbeiter fertig machen
+
 	}
 }

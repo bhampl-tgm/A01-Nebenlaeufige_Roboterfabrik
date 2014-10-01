@@ -8,10 +8,24 @@ import tgm.sew.hit.roboterfabrik.Threadee;
 import tgm.sew.hit.roboterfabrik.bauteil.Bauteil;
 import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
 
+/**
+ * Der Lagermitarbeiter der das Lager verwaltet
+ * 
+ * @author Burkhard Hampl
+ * @version 1.0
+ */
 public class Lagermitarbeiter extends Mitarbeiter {
 
 	private Lager lager;
 
+	/**
+	 * Konstroktor des {@link Lagermitarbeiter}
+	 * 
+	 * @param id
+	 *            die id des {@link Lagermitarbeiter}
+	 * @param lager
+	 *            das {@link Lager}r das er verwaltet
+	 */
 	public Lagermitarbeiter(int id, Lager lager) {
 		super(id);
 		this.lager = lager;
@@ -21,6 +35,11 @@ public class Lagermitarbeiter extends Mitarbeiter {
 		return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
 	}
 
+	/**
+	 * Stellt {@link Bauteil} bereit
+	 * 
+	 * @return die {@link Bauteil}
+	 */
 	public Bauteil[] teileBereitstellen() {
 		synchronized (this.lager) {
 			if (enoughParts()) {
@@ -44,10 +63,22 @@ public class Lagermitarbeiter extends Mitarbeiter {
 		return null;
 	}
 
+	/**
+	 * Lagert einen {@link Threadee} ein
+	 * 
+	 * @param der
+	 *            {@link Threadee} der eingelagert wird
+	 */
 	public void threadeeEinlagern(Threadee t) {
 
 	}
 
+	/**
+	 * Lagert {@link Bauteil} ein
+	 * 
+	 * @param teile
+	 *            die {@link Bauteil}
+	 */
 	public void teileEinlagern(Bauteil[] teile) {
 		synchronized (this.lager) {
 			// Teile werden nur eingelagert wenn sie nicht null sind
@@ -61,5 +92,11 @@ public class Lagermitarbeiter extends Mitarbeiter {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void run() {
+		// TODO Lagermitarbeiter fertig machen
+
 	}
 }
