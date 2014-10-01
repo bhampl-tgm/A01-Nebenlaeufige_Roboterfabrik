@@ -90,7 +90,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 			// Teile werden nur eingelagert wenn sie nicht null sind
 
 			if (teil != null) {
-				getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
+				getLogger().trace("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
 				this.lager.addTeil(teil);
 			} else {
 				// TODO log, das teil nicht ins lager geadded wird
