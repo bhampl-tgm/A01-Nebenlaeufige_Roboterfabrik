@@ -15,7 +15,7 @@
    </Appenders>
    <!-- Noch nicht sicher was das root level bewirkt, nur das bei error, debug, ... nur error logs ins log schreiben,  nur trace schreibt jedes log mit -->
    <Loggers>
-      <Root level="TRACE">
+      <Root level="FATAL">
          <!-- bei aufruf dieses loggers wird der appender mit dem namen employee-log verwendet, in diesem fall in ein file geschrieben -->
          <AppenderRef ref="employee-log"/>
       </Root>
