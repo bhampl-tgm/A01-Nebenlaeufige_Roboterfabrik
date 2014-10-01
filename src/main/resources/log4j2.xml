@@ -18,6 +18,7 @@
       <Root level="FATAL">
          <!-- bei aufruf dieses loggers wird der appender mit dem namen employee-log verwendet, in diesem fall in ein file geschrieben -->
          <AppenderRef ref="employee-log"/>
+         <AppenderRef ref="Console"/>
       </Root>
    </Loggers>
 </Configuration>
