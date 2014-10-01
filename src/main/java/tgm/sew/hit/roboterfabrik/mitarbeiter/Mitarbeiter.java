@@ -56,4 +56,7 @@ public abstract class Mitarbeiter implements Runnable {
 		this.go = go;
 	}
 
+	public  boolean getGo(){
+		return this.go;
+	}
 }

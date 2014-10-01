@@ -14,15 +14,19 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilSammlung;
  * @version 1.0
  */
 public class Montagemitarbeiter extends Mitarbeiter {
-
+	
+	private Lagermitarbeiter lm;
+	
 	/**
 	 * Konstruktor des {@link Montagemitarbeiter}
 	 * 
 	 * @param id
 	 *            die id des {@link Montagemitarbeiter}
 	 */
-	public Montagemitarbeiter(int id) {
+	public Montagemitarbeiter(int id,Lagermitarbeiter lm) {
 		super(id);
+		this.lm = lm;
+		setGo(true);
 	}
 
 	/**
@@ -47,7 +51,9 @@ public class Montagemitarbeiter extends Mitarbeiter {
 
 	@Override
 	public void run() {
-		// TODO Montagemitarbeiter fertig machen
+		while(getGo()){
+			
+		}
 
 	}
 }
