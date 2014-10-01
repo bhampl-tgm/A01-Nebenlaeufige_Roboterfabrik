@@ -1,7 +1,11 @@
 package tgm.sew.hit.roboterfabrik.mitarbeiter;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import tgm.sew.hit.roboterfabrik.Lager;
 import tgm.sew.hit.roboterfabrik.Threadee;
@@ -10,6 +14,7 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
 
 public class Lagermitarbeiter extends Mitarbeiter {
 
+	
 	private Lager lager;
 
 	public Lagermitarbeiter(int id, Lager lager) {
@@ -35,7 +40,8 @@ public class Lagermitarbeiter extends Mitarbeiter {
 				teile.add(this.lager.getBauteil(BauteilTyp.KETTENANTRIEB));
 
 				teile.add(this.lager.getBauteil(BauteilTyp.RUMPF));
-
+				
+				logger.trace(""+getClass()+" "+getId()+" hat sich ein Set teile aus dem Lager geholt.");
 				return teile.toArray(new Bauteil[0]);
 			}
 		}
@@ -53,6 +59,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 			for (Bauteil b : teile) {
 				if (b != null) {
 					this.lager.addTeil(b);
+					
 				} else {
 					// TODO log, das teil nicht ins lager geadded wird
 				}

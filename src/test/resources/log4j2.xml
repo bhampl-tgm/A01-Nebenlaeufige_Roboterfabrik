@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bei änderung von bspw. WARN auf debug oder trace wird jeder log auch von apache selbst in die Console geschrieben -->
+<Configuration status="WARN">
+   <!-- Sind dafür verantwortlich wo was hin geschrieben wird console,  log file, usw... -->
+   <Appenders>
+      <!-- stellt alles bereit um in die konsole auszugeben -->
+      <Console name="Console" target="SYSTEM_OUT">
+         <!-- Legt fest wie geloggt wird, in diesem Fall: zeit, level(trace,debug,info,...), name des loggers, klasse in der geloggt wurde, Methode in der geloggt wurde, line , message die per Parameter übergeben wird (bspw. bei entry wird text dazu geschrieben) -->
+         <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} %class{36} %M %L - %msg%n" />
+      </Console>
+      <!-- Hier wird das logfile erstellt falls noch nicht existent und das vorhandene überschrieben! (bei append="true" wird das logfile falls vorhanden erweitert und nicht  überschrieben) -->
+      <File name="employee-log" fileName="${sys.log}" append="false">
+         <PatternLayout pattern="%d{HH:mm:ss.SSS} %c %msg%xEx%n" />
+      </File>
+   </Appenders>
+   <!-- Noch nicht sicher was das root level bewirkt, nur das bei error, debug, ... nur error logs ins log schreiben,  nur trace schreibt jedes log mit -->
+   <Loggers>
+      <Root level="trace">
+         <!-- bei aufruf dieses loggers wird der appender mit dem namen employee-log verwendet, in diesem fall in ein file geschrieben -->
+         <AppenderRef ref="employee-log"/>
+      </Root>
+   </Loggers>
+</Configuration>
+<!-- http://logging.apache.org/log4j/2.0/manual/configuration.html 
+http://logging.apache.org/log4j/2.x/log4j-users-guide.pdf -->
+
