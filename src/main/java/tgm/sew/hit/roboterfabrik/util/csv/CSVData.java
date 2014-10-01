@@ -17,12 +17,6 @@ public class CSVData {
 	public CSVData() {
 		this.lines = new ArrayList<CSVLine>();
 	}
-
-	public CSVData(List<CSVLine> lines) {
-		this();
-		if (lines != null)
-			this.lines.addAll(lines);
-	}
 	
 	public void addLine(CSVLine line) {
 		this.lines.add(line);

@@ -12,7 +12,9 @@ public class TestExtendedRAF {
 
 	@Test
 	public void testRAF() throws IOException {
-		ExtendedRAF eraf = new ExtendedRAF(new File("test.test"), "rw");
+		ExtendedRAF eraf = new ExtendedRAF(new File("test/extendedraf.test"), "rw");
+		eraf.writeBytes("test1\n");
+		eraf.writeBytes("test2\n");
 		eraf.readLastLine();
 		eraf.deleteLastLine();
 	}

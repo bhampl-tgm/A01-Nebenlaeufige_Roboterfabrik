@@ -37,7 +37,7 @@ public class Threadee {
 	public String toString() {
 		String out = "";
 		
-		out += "Threadee-ID" + this.id + ",Mitarbeiter-ID" + this.herstellerId + ",";
+		out += "Threadee-ID" + (this.id == -1 ? "@" : this.id) + ",Mitarbeiter-ID" + this.herstellerId + ",";
 		
 		for (Bauteil t : this.teile) {
 			out += t.toString() + ",";

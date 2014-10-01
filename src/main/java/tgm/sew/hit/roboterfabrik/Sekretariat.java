@@ -20,7 +20,6 @@ public class Sekretariat {
 
 	private Lagermitarbeiter lagermitarbeiter;
 	private List<Mitarbeiter> montagemitarbeiter;
-	private List<Threadee> threadees;
 	private List<Lieferant> lieferant;
 	private Lager lager;
 
@@ -38,7 +37,6 @@ public class Sekretariat {
 		this.lager = new Lager(lagerVerzeichnis);
 		this.lagermitarbeiter = new Lagermitarbeiter(0, this.lager);
 		this.montagemitarbeiter = new ArrayList<Mitarbeiter>();
-		this.threadees = new ArrayList<Threadee>();
 		this.lieferant = new ArrayList<Lieferant>();
 
 		for (int i = 0; i < anzahlMontagemitarbeiter; i++)
@@ -67,15 +65,6 @@ public class Sekretariat {
 	}
 
 	/**
-	 * Getter fuer {@link Threadee}
-	 * 
-	 * @return {@link List} von allen {@link Threadee}
-	 */
-	public List<Threadee> getFertigeThreadees() {
-		return this.threadees;
-	}
-
-	/**
 	 * Getter fuer {@link Montagemitarbeiter}
 	 */
 	public void montagemitarbeiterEinstellen() {
@@ -83,7 +72,7 @@ public class Sekretariat {
 	}
 
 	/**
-	 * Getter für {@link Lieferant}
+	 * Getter fuer {@link Lieferant}
 	 */
 	public void lieferantEinstellen() {
 		this.lieferant.add(new Lieferant(this.lieferant.size() + 1, getLagermitarbeiter()));
