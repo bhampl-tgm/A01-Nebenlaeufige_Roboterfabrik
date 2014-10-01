@@ -28,7 +28,9 @@ public class ExtendedRAF extends RandomAccessFile {
 	 */
 	public String readLastLine() throws IOException {
 		StringBuilder builder = new StringBuilder();
-		long length = this.length() - 1;
+		long length = this.length();
+		if (length > 0)
+			length--;
 		this.seek(length);
 		for (long seek = length; seek >= 0; --seek) {
 			this.seek(seek);

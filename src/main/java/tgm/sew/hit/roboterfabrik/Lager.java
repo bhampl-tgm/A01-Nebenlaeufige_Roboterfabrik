@@ -36,7 +36,7 @@ public class Lager {
 			File dir = new File(dataDir);
 			File fAugen = new File(dataDir, "augen.csv");
 			File fArme = new File(dataDir, "arme.csv");
-			File fAntriebe = new File(dataDir, "arme.csv");
+			File fAntriebe = new File(dataDir, "kettenanriebe.csv");
 			File fRuempfe = new File(dataDir, "ruempfe.csv");
 			File fAuslieferung = new File(dataDir, "auslieferung.csv");
 

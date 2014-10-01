@@ -58,7 +58,7 @@ public class Sekretariat {
 		mitarbeiter.add(lagermitarbeiter);
 		
 		this.watchdog = new Watchdog(laufzeit, mitarbeiter);
-		
+		new Thread(this.watchdog).start();
 	}
 
 	/**
