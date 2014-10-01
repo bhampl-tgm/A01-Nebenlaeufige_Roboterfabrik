@@ -52,7 +52,9 @@ public class Lieferant implements Runnable{
 	}
 	
 	public synchronized Bauteil getTeil() {
-		return this.teil;
+		Bauteil b = this.teil;
+		this.teil = null;
+		return b;
 	}
 
 	public int getId() {
