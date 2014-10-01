@@ -19,6 +19,8 @@ public class Simulation {
 	 *            die Kommandozielenargumente
 	 */
 	public static void main(String[] args) {
+		
+				
 		try {
 			Map<String, String> param = RoboterFabrikArgumentParser.parseArgs(args);
 			System.setProperty("log", "" + param.get("logs"));

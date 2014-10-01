@@ -40,7 +40,7 @@ public class Sekretariat {
 		this.lagermitarbeiter = new Lagermitarbeiter(0, this.lager);
 		this.montagemitarbeiter = new ArrayList<Montagemitarbeiter>();
 		this.lieferant = new ArrayList<Lieferant>();
-
+		
 		for (int i = 0; i < anzahlMontagemitarbeiter; i++)
 			montagemitarbeiterEinstellen();
 

@@ -2,6 +2,7 @@ package tgm.sew.hit.roboterfabrik.util;
 
 import java.util.List;
 
+import tgm.sew.hit.roboterfabrik.Sekretariat;
 import tgm.sew.hit.roboterfabrik.mitarbeiter.Mitarbeiter;
 
 /**
