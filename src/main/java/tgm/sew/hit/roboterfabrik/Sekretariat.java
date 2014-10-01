@@ -55,8 +55,9 @@ public class Sekretariat {
 		for (Mitarbeiter m : lieferant)
 			mitarbeiter.add(m);
 		
+		mitarbeiter.add(lagermitarbeiter);
+		
 		this.watchdog = new Watchdog(laufzeit, mitarbeiter);
-		new Thread(this.watchdog).start();
 		
 	}
 

@@ -34,9 +34,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	}
 
 	public boolean enoughParts() {
-		synchronized (this.lager) {
-			return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
-		}
+		return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
 	}
 
 	/**
@@ -90,7 +88,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 			// Teile werden nur eingelagert wenn sie nicht null sind
 
 			if (teil != null) {
-				getLogger().trace("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
+				getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
 				this.lager.addTeil(teil);
 			} else {
 				// TODO log, das teil nicht ins lager geadded wird
@@ -101,7 +99,10 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	}
 
 	@Override
-	public void run() {}
+	public void run() {
+		// TODO Lagermitarbeiter fertig machen
+
+	}
 	
 	public void setTid(int tid){
 		this.tid = tid;
