@@ -1,8 +1,10 @@
 package tgm.sew.hit.roboterfabrik.util;
 
+import java.util.List;
+
 import tgm.sew.hit.roboterfabrik.mitarbeiter.Mitarbeiter;
 
-/*
+/**
  * 
  * Watchdog der nach der Runtime alle Threads beendet.
  * 
@@ -14,9 +16,9 @@ public class Watchdog implements Runnable {
 	private int zeit;
 	private Mitarbeiter[] threads;
 
-	public Watchdog(int zeit, Mitarbeiter[] threads) {
+	public Watchdog(int zeit, List<Mitarbeiter> threads) {
 		this.zeit = zeit;
-		this.threads = threads;
+		this.threads = threads.toArray(new Mitarbeiter[0]);
 	}
 
 	@Override

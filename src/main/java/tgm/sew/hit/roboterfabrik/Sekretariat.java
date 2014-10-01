@@ -20,7 +20,7 @@ import tgm.sew.hit.roboterfabrik.util.Watchdog;
 public class Sekretariat {
 
 	private Lagermitarbeiter lagermitarbeiter;
-	private List<Mitarbeiter> montagemitarbeiter;
+	private List<Montagemitarbeiter> montagemitarbeiter;
 	private List<Lieferant> lieferant;
 	private Lager lager;
 	private Watchdog watchdog;
@@ -38,15 +38,27 @@ public class Sekretariat {
 	public Sekretariat(int anzahlMontagemitarbeiter, int anzahlLieferanten, String lagerVerzeichnis,int laufzeit) {
 		this.lager = new Lager(lagerVerzeichnis);
 		this.lagermitarbeiter = new Lagermitarbeiter(0, this.lager);
-		this.montagemitarbeiter = new ArrayList<Mitarbeiter>();
+		this.montagemitarbeiter = new ArrayList<Montagemitarbeiter>();
 		this.lieferant = new ArrayList<Lieferant>();
-		//TODO watchdog kriegt ein Mitarbeiterarray von allen mitarbeitern udn muss noch gestartet werden
 
 		for (int i = 0; i < anzahlMontagemitarbeiter; i++)
 			montagemitarbeiterEinstellen();
 
 		for (int i = 0; i < anzahlLieferanten; i++)
 			lieferantEinstellen();
+		
+		List<Mitarbeiter> mitarbeiter = new ArrayList<Mitarbeiter>();
+		
+		for (Mitarbeiter m : montagemitarbeiter)
+			mitarbeiter.add(m);
+		
+		for (Mitarbeiter m : lieferant)
+			mitarbeiter.add(m);
+		
+		mitarbeiter.add(lagermitarbeiter);
+		
+		this.watchdog = new Watchdog(laufzeit, mitarbeiter);
+		
 	}
 
 	/**
@@ -63,7 +75,7 @@ public class Sekretariat {
 	 * 
 	 * @return {@link List} von allen {@link Mitarbeiter}
 	 */
-	public List<Mitarbeiter> getMontagemitarbeiter() {
+	public List<Montagemitarbeiter> getMontagemitarbeiter() {
 		return this.montagemitarbeiter;
 	}
 
