@@ -40,19 +40,20 @@ public class Montagemitarbeiter extends Mitarbeiter {
 	 *            Die ID die dem Threadee zugewiesen werden soll.
 	 * @return Der fertige Threadee
 	 */
-	public Threadee baueThreadee(Bauteil[] teile, int threadeeId) {
+	public void baueThreadee(Bauteil[] teile) {
 		if (new BauteilSammlung(teile).isValid()) {
-			getLogger().info("" + getClass() + " " + getId() + " hat den Threadee mit der ID:" + threadeeId + "fertiggestellt.");
-			return new Threadee(threadeeId, getId(), teile);
+			getLogger().info("" + getClass() + " " + getId() + " hat den Threadee fertiggestellt.");
+			lm.threadeeEinlagern(new Threadee(-1, getId(), teile));
 		}
 
-		return null;
 	}
 
 	@Override
 	public void run() {
 		while(getGo()){
-			
+			if(lm.enoughParts()){
+				this.baueThreadee(lm.teileBereitstellen());
+			}
 		}
 
 	}

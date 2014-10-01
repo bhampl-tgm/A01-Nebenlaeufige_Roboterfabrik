@@ -31,7 +31,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 		this.lager = lager;
 	}
 
-	private boolean enoughParts() {
+	public boolean enoughParts() {
 		return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
 	}
 
@@ -85,11 +85,12 @@ public class Lagermitarbeiter extends Mitarbeiter {
 			// Teile werden nur eingelagert wenn sie nicht null sind
 
 			if (teil != null) {
-				getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + "eingelagert");
+				getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
 				this.lager.addTeil(teil);
 
 			} else {
 				// TODO log, das teil nicht ins lager geadded wird
+				getLogger().info("" + getClass() + " " + getId() + " hat ein ungültiges Teil welches übersprungen wurde");
 			}
 
 		}

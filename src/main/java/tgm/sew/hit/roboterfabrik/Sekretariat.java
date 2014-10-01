@@ -18,7 +18,7 @@ import tgm.sew.hit.roboterfabrik.mitarbeiter.Montagemitarbeiter;
  */
 public class Sekretariat {
 
-	private Mitarbeiter lagermitarbeiter;
+	private Lagermitarbeiter lagermitarbeiter;
 	private List<Mitarbeiter> montagemitarbeiter;
 	private List<Threadee> threadees;
 	private List<Lieferant> lieferant;
@@ -53,7 +53,7 @@ public class Sekretariat {
 	 * 
 	 * @return den {@link Lagermitarbeiter}
 	 */
-	public Mitarbeiter getLagermitarbeiter() {
+	public Lagermitarbeiter getLagermitarbeiter() {
 		return this.lagermitarbeiter;
 	}
 
@@ -79,14 +79,14 @@ public class Sekretariat {
 	 * Getter fuer {@link Montagemitarbeiter}
 	 */
 	public void montagemitarbeiterEinstellen() {
-		this.montagemitarbeiter.add(new Montagemitarbeiter(this.montagemitarbeiter.size() + 1));
+		this.montagemitarbeiter.add(new Montagemitarbeiter(this.montagemitarbeiter.size() + 1, getLagermitarbeiter()));
 	}
 
 	/**
 	 * Getter für {@link Lieferant}
 	 */
 	public void lieferantEinstellen() {
-		this.lieferant.add(new Lieferant(this.lieferant.size() + 1,(Lagermitarbeiter) getLagermitarbeiter()));
+		this.lieferant.add(new Lieferant(this.lieferant.size() + 1, getLagermitarbeiter()));
 
 	}
 
