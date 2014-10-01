@@ -40,7 +40,7 @@ public class Lager {
 			File fAuslieferung = new File(dataDir, "auslieferung.csv");
 			
 			// Verzeichnise werden erstellt falls nicht vorhanden
-			fAugen.mkdirs();
+			fAugen.mkdir();
 
 			// Files erstellen
 			try {
