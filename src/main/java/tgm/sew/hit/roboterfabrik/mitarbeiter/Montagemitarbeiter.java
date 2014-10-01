@@ -6,7 +6,8 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilSammlung;
 
 /**
  * 
- * Der Montagemitarbeiter dient nur dazu die Teile die ihm uebergeben werden zusammenzusetzen
+ * Der Montagemitarbeiter dient nur dazu die Teile die ihm uebergeben werden
+ * zusammenzusetzen
  * 
  * @author Stefan Geyer
  * @version 1.0
@@ -19,18 +20,21 @@ public class Montagemitarbeiter extends Mitarbeiter {
 
 	/**
 	 * 
-	 * Simuliert das zusammenbauen des Threadees sofern alle Teile vorhanden sind.
+	 * Simuliert das zusammenbauen des Threadees sofern alle Teile vorhanden
+	 * sind.
 	 * 
-	 * @param teile Teile die zusammengebaut werden
-	 * @param threadeeId Die ID die dem Threadee zugewiesen werden soll.
+	 * @param teile
+	 *            Teile die zusammengebaut werden
+	 * @param threadeeId
+	 *            Die ID die dem Threadee zugewiesen werden soll.
 	 * @return Der fertige Threadee
 	 */
 	public Threadee baueThreadee(Bauteil[] teile, int threadeeId) {
 		if (new BauteilSammlung(teile).isValid()) {
-			getLogger().trace(""+getClass()+" "+getId()+" hat den Threadee mit der ID:"+threadeeId+"fertiggestellt.");
+			getLogger().trace("" + getClass() + " " + getId() + " hat den Threadee mit der ID:" + threadeeId + "fertiggestellt.");
 			return new Threadee(threadeeId, getId(), teile);
 		}
-		
+
 		return null;
 	}
 }

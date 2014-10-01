@@ -2,16 +2,23 @@ package tgm.sew.hit.roboterfabrik.util;
 
 import tgm.sew.hit.roboterfabrik.mitarbeiter.Mitarbeiter;
 
+/*
+ * 
+ * Watchdog der nach der Runtime 
+ * 
+ * @author pmalik
+ * @version 1.0
+ */
 public class Watchdog implements Runnable {
 
 	private int zeit;
 	private Mitarbeiter[] threads;
-	
-	public Watchdog(int zeit, Mitarbeiter[] threads){
-		this.zeit =zeit;
+
+	public Watchdog(int zeit, Mitarbeiter[] threads) {
+		this.zeit = zeit;
 		this.threads = threads;
 	}
-	
+
 	@Override
 	public void run() {
 		try {
@@ -23,11 +30,11 @@ public class Watchdog implements Runnable {
 		threads[1].setGo(false);
 	}
 
-	public int getZeit(){
+	public int getZeit() {
 		return this.zeit;
 	}
-	
-	public Mitarbeiter[] getThreads(){
+
+	public Mitarbeiter[] getThreads() {
 		return this.threads;
 	}
 }
