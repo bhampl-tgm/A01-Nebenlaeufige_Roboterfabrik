@@ -7,6 +7,7 @@ import tgm.sew.hit.roboterfabrik.mitarbeiter.Lagermitarbeiter;
 import tgm.sew.hit.roboterfabrik.mitarbeiter.Lieferant;
 import tgm.sew.hit.roboterfabrik.mitarbeiter.Mitarbeiter;
 import tgm.sew.hit.roboterfabrik.mitarbeiter.Montagemitarbeiter;
+import tgm.sew.hit.roboterfabrik.util.Watchdog;
 
 /**
  * 
@@ -22,6 +23,7 @@ public class Sekretariat {
 	private List<Mitarbeiter> montagemitarbeiter;
 	private List<Lieferant> lieferant;
 	private Lager lager;
+	private Watchdog watchdog;
 
 	/**
 	 * Konstruktor des Sekretariats
@@ -33,11 +35,12 @@ public class Sekretariat {
 	 * @param lagerVerzeichnis
 	 *            gibt das {@link Lager} Verzeichnis an
 	 */
-	public Sekretariat(int anzahlMontagemitarbeiter, int anzahlLieferanten, String lagerVerzeichnis) {
+	public Sekretariat(int anzahlMontagemitarbeiter, int anzahlLieferanten, String lagerVerzeichnis,int laufzeit) {
 		this.lager = new Lager(lagerVerzeichnis);
 		this.lagermitarbeiter = new Lagermitarbeiter(0, this.lager);
 		this.montagemitarbeiter = new ArrayList<Mitarbeiter>();
 		this.lieferant = new ArrayList<Lieferant>();
+		//TODO watchdog kriegt ein Mitarbeiterarray von allen mitarbeitern udn muss noch gestartet werden
 
 		for (int i = 0; i < anzahlMontagemitarbeiter; i++)
 			montagemitarbeiterEinstellen();
