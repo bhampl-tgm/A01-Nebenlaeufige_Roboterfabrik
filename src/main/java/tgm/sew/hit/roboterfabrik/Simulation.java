@@ -27,11 +27,15 @@ public class Simulation {
 			Sekretariat sk = new Sekretariat(Integer.parseInt(param.get("monteure")), param.get("lager"));
 		} catch (ParseException e) {
 			System.err.println("Error while parsing: " + e.getMessage());
+			RoboterFabrikArgumentParser.printHalp();
 			System.exit(1);
 		} catch (NumberFormatException e) {
 			System.err.println("Error while parsing: montuere must be int");
+			RoboterFabrikArgumentParser.printHalp();
+			System.exit(1);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.exit(1);
 		}
 
 	}
