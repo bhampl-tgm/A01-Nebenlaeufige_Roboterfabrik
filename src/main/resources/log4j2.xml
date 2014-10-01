@@ -9,7 +9,7 @@
          <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} %class{36} %M %L - %msg%n" />
       </Console>
       <!-- Hier wird das logfile erstellt falls noch nicht existent und das vorhandene überschrieben! (bei append="true" wird das logfile falls vorhanden erweitert und nicht  überschrieben) -->
-      <File name="employee-log" fileName="${sys.log}" append="false">
+      <File name="employee-log" fileName="${sys:log}" append="false">
          <PatternLayout pattern="%d{HH:mm:ss.SSS} %c %msg%xEx%n" />
       </File>
    </Appenders>
