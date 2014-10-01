@@ -17,7 +17,7 @@
    <Loggers>
       <Root level="info">
          <!-- bei aufruf dieses loggers wird der appender mit dem namen employee-log verwendet, in diesem fall in ein file geschrieben -->
-         <AppenderRef ref="Console"/>
+         <AppenderRef ref="employee-log"/>
       </Root>
       
    </Loggers>
