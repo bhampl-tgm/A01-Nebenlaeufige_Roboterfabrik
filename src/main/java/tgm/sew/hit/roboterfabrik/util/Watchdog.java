@@ -23,17 +23,27 @@ public class Watchdog implements Runnable {
 
 	@Override
 	public void run() {
+		startThreads();
 		try {
 			Thread.sleep(zeit);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for (int i = 0; i < threads.length; i++) {
-			threads[i].setGo(false);
-		}
+		stopThreads();
 	}
 
+	public void startThreads() {
+		for (Mitarbeiter t : this.threads) {
+			new Thread(t).start();
+		}
+	}
+	
+	public void stopThreads() {
+		for (Mitarbeiter t : this.threads) {
+			t.setGo(false);
+		}
+	}
+	
 	public int getZeit() {
 		return this.zeit;
 	}
