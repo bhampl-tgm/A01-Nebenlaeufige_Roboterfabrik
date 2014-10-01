@@ -15,6 +15,7 @@ import org.apache.commons.cli.ParseException;
  * Ein Argumenten Parser fuer die RoboterFabrik
  * 
  * @author Burkhard Hampl
+ * @version 1.0
  */
 public class RoboterFabrikArgumentParser {
 
@@ -25,9 +26,10 @@ public class RoboterFabrikArgumentParser {
 	 *            argumente, die geparst werde soll
 	 * @return eine {@link Map}, die alle fuer uns notwendige Parameter
 	 *         zurueckgibt
+	 * @throws ParseException Wenn ein fehler beim parsen auftetet
 	 */
 	@SuppressWarnings("static-access")
-	public static Map<String, String> parseArgs(String[] args) {
+	public static Map<String, String> parseArgs(String[] args) throws ParseException {
 		Map<String, String> pars = new HashMap<String, String>();
 		Options options = new Options();
 
@@ -47,19 +49,15 @@ public class RoboterFabrikArgumentParser {
 
 		CommandLineParser parser = new BasicParser();
 		CommandLine line = null;
-		try {
-			// parsen der Argumente
-			line = parser.parse(options, args);
+		// parsen der Argumente
+		line = parser.parse(options, args);
 
-			// zur Hashmap hinzufuegen
-			pars.put("lager", line.getOptionValue("lager"));
-			pars.put("logs", line.getOptionValue("logs"));
-			pars.put("lieferanten", line.getOptionValue("lieferanten"));
-			pars.put("monteure", line.getOptionValue("monteure"));
-			pars.put("laufzeit", line.getOptionValue("laufzeit"));
-		} catch (ParseException e) {
-			System.err.println("Error while parsing: " + e.getMessage());
-		}
+		// zur Hashmap hinzufuegen
+		pars.put("lager", line.getOptionValue("lager"));
+		pars.put("logs", line.getOptionValue("logs"));
+		pars.put("lieferanten", line.getOptionValue("lieferanten"));
+		pars.put("monteure", line.getOptionValue("monteure"));
+		pars.put("laufzeit", line.getOptionValue("laufzeit"));
 
 		return pars;
 	}
