@@ -20,11 +20,11 @@ public class Sekretariat {
 	private List<Mitarbeiter> montagemitarbeiter;
 
 	private List<Threadee> threadees;
-	
+
 	private Lager lager;
 
 	public Sekretariat(int anzahlMontagemitarbeiter, String lagerVerzeichnis) {
-		
+
 		this.lager = new Lager(lagerVerzeichnis);
 		this.lagermitarbeiter = new Lagermitarbeiter(0, this.lager);
 		this.montagemitarbeiter = new ArrayList<Mitarbeiter>();
