@@ -17,8 +17,9 @@
    <Loggers>
       <Root level="info">
          <!-- bei aufruf dieses loggers wird der appender mit dem namen employee-log verwendet, in diesem fall in ein file geschrieben -->
-         <AppenderRef ref="employee-log"/>
+         <AppenderRef ref="Console"/>
       </Root>
+      
    </Loggers>
 </Configuration>
 <!-- http://logging.apache.org/log4j/2.0/manual/configuration.html 
