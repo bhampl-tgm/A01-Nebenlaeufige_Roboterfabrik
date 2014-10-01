@@ -55,7 +55,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 
 				teile.add(this.lager.getBauteil(BauteilTyp.RUMPF));
 
-				getLogger().trace("" + getClass() + " " + getId() + " hat sich ein Set teile aus dem Lager geholt.");
+				getLogger().info("" + getClass() + " " + getId() + " hat sich ein Set teile aus dem Lager geholt.");
 				return teile.toArray(new Bauteil[0]);
 			}
 		}
@@ -70,7 +70,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 *            {@link Threadee} der eingelagert wird
 	 */
 	public void threadeeEinlagern(Threadee t) {
-		getLogger().trace("" + getClass() + " " + getId() + " hat einen Threadee mit der ID "+t.getId()+" eingelagert.");
+		getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID "+t.getId()+" eingelagert.");
 		this.lager.threadeeAblegen(t);
 	}
 
@@ -85,7 +85,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 			// Teile werden nur eingelagert wenn sie nicht null sind
 			for (Bauteil b : teile) {
 				if (b != null) {
-					getLogger().trace("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + b.getTyp().getName() + "eingelagert");
+					getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + b.getTyp().getName() + "eingelagert");
 					this.lager.addTeil(b);
 
 				} else {

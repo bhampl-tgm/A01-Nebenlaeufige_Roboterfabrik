@@ -39,7 +39,7 @@ public class Lieferant implements Runnable{
 			data[i] = new Random().nextInt(1000);
 		}
 
-		Mitarbeiter.getLogger().trace("" + getClass() + " " + getId() + " hat das Bauteil " + typ.getName() + " geliefert.");
+		Mitarbeiter.getLogger().info("" + getClass() + " " + getId() + " hat das Bauteil " + typ.getName() + " geliefert.");
 		return new Bauteil(typ, data);
 	}
 	
