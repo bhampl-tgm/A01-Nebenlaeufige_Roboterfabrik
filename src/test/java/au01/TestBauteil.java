@@ -21,17 +21,21 @@ public class TestBauteil {
 	
 	@Test
 	public void testBauteil2() {
-		Bauteil pB = Bauteil.parseCSVString(null);
-		pB = Bauteil.parseCSVString("Arm,0,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9");
+		Bauteil.parseCSVString(null);
 	}
 	
 	@Test
 	public void testBauteil3() {
+		Bauteil.parseCSVString("Arm,0,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9");
+	}
+	
+	@Test
+	public void testBauteil4() {
 		Bauteil.parseCSVString("Arm,0,bla");
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void testBauteil4() {
+	public void testBauteil5() {
 		Bauteil.parseCSVString("Test,0,1");
 	}
 

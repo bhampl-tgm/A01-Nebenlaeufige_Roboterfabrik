@@ -17,9 +17,11 @@ public class Lieferant implements Runnable{
 
 	private int id;
 	private boolean go;
+	private Bauteil teil;
 
 	public Lieferant(int id) {
 		this.id = id;
+		this.teil = null;
 	}
 
 	/**
@@ -40,6 +42,18 @@ public class Lieferant implements Runnable{
 		Mitarbeiter.getLogger().trace("" + getClass() + " " + getId() + " hat das Bauteil " + typ.getName() + " geliefert.");
 		return new Bauteil(typ, data);
 	}
+	
+	@Override
+	public void run() {
+		while(go) {
+			if (this.teil == null)
+				this.teil = neuesTeil();
+		}
+	}
+	
+	public synchronized Bauteil getTeil() {
+		return this.teil;
+	}
 
 	public int getId() {
 		return this.id;
@@ -47,13 +61,5 @@ public class Lieferant implements Runnable{
 
 	public void setGo(boolean go) {
 		this.go = go;
-	}
-
-	@Override
-	public void run() {
-		while(go) {
-			//TODO Lieferant fertig machen
-		}
-		
 	}
 }
