@@ -1,0 +1,803 @@
+commit e83010d3c085f9f9c72db71bbe0a7fc492e58b81
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 23:27:43 2014 +0200
+
+    Fixed Bug in Lager
+
+ .gitignore                                         |  2 +
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java |  2 +-
+ src/test/java/au01/TestCSV.java                    | 88 ++++++++++++++++++++++
+ 3 files changed, 91 insertions(+), 1 deletion(-)
+
+commit b9507988b7bee9907c1e28bc3f744a40db72229e
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 23:20:59 2014 +0200
+
+    fileName changed
+
+ src/main/resources/log4j2.xml         |  4 ++--
+ src/test/java/au01/TestLieferant.java | 44 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 46 insertions(+), 2 deletions(-)
+
+commit 3ae034eb14c760f300f8278c97802c87d71daf30
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 23:16:47 2014 +0200
+
+    Sync
+
+ .gitignore                                                        | 2 --
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java                | 2 +-
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java          | 2 +-
+ src/main/java/tgm/sew/hit/roboterfabrik/Simulation.java           | 2 ++
+ src/main/java/tgm/sew/hit/roboterfabrik/util/Watchdog.java        | 1 +
+ src/main/java/tgm/sew/hit/roboterfabrik/util/csv/ExtendedRAF.java | 4 +---
+ 6 files changed, 6 insertions(+), 7 deletions(-)
+
+commit 13e82135c32e4aa6938b1c782bbdedd4ed1251e9
+Merge: 33ac983 d515846
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 23:12:18 2014 +0200
+
+    Merge branch 'master' of https://github.com/bhampl-tgm/A01-Nebenlaeufige_Roboterfabrik
+
+commit 33ac983c4a7dd3df4065871ab2277f167e80aacd
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 23:12:07 2014 +0200
+
+    Started Watchdog v2
+
+ .gitignore                                                        | 2 ++
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java                | 2 +-
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java          | 2 +-
+ src/main/java/tgm/sew/hit/roboterfabrik/util/csv/ExtendedRAF.java | 4 +++-
+ src/test/java/empty                                               | 0
+ 5 files changed, 7 insertions(+), 3 deletions(-)
+
+commit d515846437e483f621157dfd4a2f6d889a65c9ee
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:58:03 2014 +0200
+
+    Changed XML
+
+ src/main/resources/log4j2.xml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 49a908d2edaeb0ecb744277f462bf95b01a0cc3b
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:54:14 2014 +0200
+
+    Changed Root Level
+
+ src/main/resources/log4j2.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0c51fd67e81585c3f30408c33e0ea909ee925eb8
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:50:35 2014 +0200
+
+    Added AppenderRef
+
+ src/main/resources/log4j2.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 4d43ef89d7e53ae7e70f9b1f4844e61704d3e5f9
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:47:54 2014 +0200
+
+    Changed root level
+
+ src/main/resources/log4j2.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ba8e44e34a17fbb01633b88529f999d3d1c3987a
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:45:34 2014 +0200
+
+    Root level changed
+
+ src/main/resources/log4j2.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit fdde7f0d2392cd5191bacac2ba00c46e07819233
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:44:05 2014 +0200
+
+    Root level changed
+
+ src/main/resources/log4j2.xml | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit 159288e66240711e0d0ec6df0e33a9a24f2a7384
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:35:58 2014 +0200
+
+    Fixed xml
+
+ src/main/resources/log4j2.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7be47547852f93202701e71d50756d1c4a96ad62
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:29:42 2014 +0200
+
+    Fixed sysproperties
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Simulation.java | 2 +-
+ src/main/resources/log4j2.xml                           | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 2dc37ececd9fed15b4a0d6df5065401fda606699
+Merge: 16edc4f e201d2e
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Wed Oct 1 22:24:19 2014 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 16edc4fb9d35c4142740b8b11209c89ef09087eb
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Wed Oct 1 22:23:47 2014 +0200
+
+    Test
+
+ .gitignore                                                    |  1 -
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java      |  3 ++-
+ .../sew/hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java   | 11 ++++++-----
+ src/main/resources/log4j2.xml                                 |  3 +--
+ 4 files changed, 9 insertions(+), 9 deletions(-)
+
+commit e201d2ebf43963a8a465bffb9e7882d60f5b112c
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:19:34 2014 +0200
+
+    Changed XML
+
+ src/main/resources/log4j2.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8869322c73967f5ca9f2b7a0c708a1dcc0397067
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 22:17:25 2014 +0200
+
+    Starte Watchdog
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java                | 1 +
+ .../java/tgm/sew/hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java    | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 906a7b585160bdb23a431c3a8e3690d94992d2a0
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 22:05:32 2014 +0200
+
+    Changed xml
+
+ src/main/resources/log4j2.xml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit b4c5c5a905c2af6aadcaa5b89b22511f25edcc44
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 22:03:54 2014 +0200
+
+    Modiefied Sekretariat
+
+ .gitignore                                                       | 2 ++
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java         | 2 --
+ .../tgm/sew/hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java  | 9 ++++-----
+ 3 files changed, 6 insertions(+), 7 deletions(-)
+
+commit 7c0b9bdfbc03391d97db35dddfb88321e9380a98
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 21:38:02 2014 +0200
+
+    Reworked Watchdog
+
+ .../java/tgm/sew/hit/roboterfabrik/util/Watchdog.java  | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
+
+commit 4f4fd38562319c094393f93eacc86cfdf6b274fa
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 21:35:21 2014 +0200
+
+    Modified simulation
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Simulation.java | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+commit d6007f82192dcbe5f53390c3a9e381f46dd8c8aa
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 21:29:16 2014 +0200
+
+    Added Watchdog
+
+ .../java/tgm/sew/hit/roboterfabrik/Sekretariat.java  | 20 ++++++++++++++++----
+ .../tgm/sew/hit/roboterfabrik/util/Watchdog.java     |  8 +++++---
+ 2 files changed, 21 insertions(+), 7 deletions(-)
+
+commit 213faac14de3924148189a80904898d3dab345a0
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Wed Oct 1 21:21:31 2014 +0200
+
+    Tried ExtendedRAF fix
+
+ src/main/java/tgm/sew/hit/roboterfabrik/util/csv/ExtendedRAF.java | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit 3d5f5cf3b84a31a548d659e46f05b11a8bc191f6
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Wed Oct 1 21:07:51 2014 +0200
+
+    Added TestLager
+
+ .gitignore                        |  1 +
+ src/test/java/au01/TestLager.java | 92 +++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 93 insertions(+)
+
+commit 59162bed38bee77d401ecd9373e022cf78882aae
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 21:01:20 2014 +0200
+
+    Changed constructor of Sekretariat and modified Simulation
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java | 5 ++++-
+ src/main/java/tgm/sew/hit/roboterfabrik/Simulation.java  | 2 +-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+commit d96419185cf9983752d0d168801348cddc8b8d02
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 20:53:28 2014 +0200
+
+    Threade can be saved as string
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java | 28 ++++++++++++----------
+ .../mitarbeiter/Lagermitarbeiter.java              |  5 ++--
+ 2 files changed, 18 insertions(+), 15 deletions(-)
+
+commit 5bb7ceda204d8ef875f29e72619a3d5154ce3a96
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 20:49:40 2014 +0200
+
+    Added threadee-id in Lagermitarbeiter
+
+ .../hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java   | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
+
+commit 6dc616be32d099331fe75ff7efb75e5d2bce759c
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 20:41:10 2014 +0200
+
+    Removed threadees from Sekretariat
+
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     | 13 +-----
+ .../java/tgm/sew/hit/roboterfabrik/Threadee.java   |  2 +-
+ .../sew/hit/roboterfabrik/util/csv/CSVData.java    |  6 ---
+ .../sew/hit/roboterfabrik/util/csv/CSVFile.java    | 50 ----------------------
+ src/test/java/au01/TestExtendedRAF.java            |  4 +-
+ 5 files changed, 5 insertions(+), 70 deletions(-)
+
+commit 73cbc42addf269b3e8fc025cea5e3ff371c58257
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 20:39:08 2014 +0200
+
+    Modified, Sekretariat,Lager- and Montagemitarbeiter.
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java      |  8 ++++----
+ .../sew/hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java   |  5 +++--
+ .../sew/hit/roboterfabrik/mitarbeiter/Montagemitarbeiter.java | 11 ++++++-----
+ 3 files changed, 13 insertions(+), 11 deletions(-)
+
+commit 9010d0d92d73b879d9cbc7d030b5eee5aec02327
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 20:05:17 2014 +0200
+
+    prepared classes for watchdog; Lieferant now implements Mitarbeiter
+
+ .../tgm/sew/hit/roboterfabrik/mitarbeiter/Lieferant.java     | 11 +++++------
+ .../tgm/sew/hit/roboterfabrik/mitarbeiter/Mitarbeiter.java   |  3 +++
+ .../hit/roboterfabrik/mitarbeiter/Montagemitarbeiter.java    | 12 +++++++++---
+ 3 files changed, 17 insertions(+), 9 deletions(-)
+
+commit 765025d1b87d7c6c43e3be6539e348bdd122dfc0
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 19:51:36 2014 +0200
+
+    Added TestExtendedRAF
+
+ .gitignore                                            |  1 +
+ .../sew/hit/roboterfabrik/mitarbeiter/Lieferant.java  | 13 +------------
+ src/test/java/au01/TestExtendedRAF.java               | 19 +++++++++++++++++++
+ 3 files changed, 21 insertions(+), 12 deletions(-)
+
+commit 3e2e5d967f2b8b92356049a26f8a8578bd882fb4
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 19:44:35 2014 +0200
+
+    Lagermitarbeiter modified and run of Lieferant changed
+
+ .../java/tgm/sew/hit/roboterfabrik/Sekretariat.java  |  2 +-
+ .../roboterfabrik/mitarbeiter/Lagermitarbeiter.java  | 20 ++++++++++----------
+ .../sew/hit/roboterfabrik/mitarbeiter/Lieferant.java | 14 +++++++++-----
+ 3 files changed, 20 insertions(+), 16 deletions(-)
+
+commit 1137aa23324b77477e9481c7909068d776181143
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 19:27:58 2014 +0200
+
+    Changed LogLevel
+
+ .../tgm/sew/hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java     | 6 +++---
+ src/main/java/tgm/sew/hit/roboterfabrik/mitarbeiter/Lieferant.java  | 2 +-
+ .../tgm/sew/hit/roboterfabrik/mitarbeiter/Montagemitarbeiter.java   | 2 +-
+ src/main/resources/log4j2.xml                                       | 2 +-
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+
+commit 6574c773ad174618aca5a1e11b0091be27664e6a
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 19:14:40 2014 +0200
+
+    Fixed bug in Lieferant
+
+ src/main/java/tgm/sew/hit/roboterfabrik/mitarbeiter/Lieferant.java | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 3e3cb00e63763a9b2f75353bfeb91e432c68392e
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 19:04:24 2014 +0200
+
+    Modified Lieferant
+
+ .../hit/roboterfabrik/mitarbeiter/Lieferant.java   | 22 ++++++++++++++--------
+ src/test/java/au01/TestBauteil.java                | 10 +++++++---
+ 2 files changed, 21 insertions(+), 11 deletions(-)
+
+commit 05484763526b238c0c4f08a4fc99b42e6ff62131
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 19:00:41 2014 +0200
+
+    implemented threadeeEinlagern
+
+ .../java/tgm/sew/hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java  | 3 ++-
+ src/main/java/tgm/sew/hit/roboterfabrik/util/Watchdog.java            | 4 ++--
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+
+commit f580086e27a15d519ece9a9d47496eb28ccca18e
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Wed Oct 1 18:48:40 2014 +0200
+
+    Added Javadoc and implemented Runnable
+
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     | 10 ++++++
+ .../mitarbeiter/Lagermitarbeiter.java              | 37 ++++++++++++++++++++++
+ .../hit/roboterfabrik/mitarbeiter/Lieferant.java   | 10 +++++-
+ .../hit/roboterfabrik/mitarbeiter/Mitarbeiter.java | 28 ++++++++++++++--
+ .../mitarbeiter/Montagemitarbeiter.java            | 13 ++++++++
+ 5 files changed, 95 insertions(+), 3 deletions(-)
+
+commit 3296559ab81b056d4213fca5e2d4262f0cfe7716
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 18:30:52 2014 +0200
+
+    changed Watchdog
+
+ src/main/java/tgm/sew/hit/roboterfabrik/util/Watchdog.java | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 8a7e0102593bf89995a590204bc935e120dbb3f6
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 18:27:02 2014 +0200
+
+    Prepared for Watchdog
+
+ .../hit/roboterfabrik/mitarbeiter/Lieferant.java   | 31 ++++++++++++----------
+ 1 file changed, 17 insertions(+), 14 deletions(-)
+
+commit f5ef4737da83a5ed4ecddfaffb0548b7d946acf4
+Merge: 47fe2ad 6ae01bb
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 18:21:54 2014 +0200
+
+    Merge branch 'master' of
+    https://github.com/bhampl-tgm/A01-Nebenlaeufige_Roboterfabrik.git
+    
+    Conflicts:
+    	src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java
+
+commit 47fe2adaaac9105bba0d96e4374fd540dff3b3a1
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 18:20:49 2014 +0200
+
+    Test
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 6ae01bbf08b2e7cd2f413551f0e2d7eeb1796de8
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Wed Oct 1 18:12:49 2014 +0200
+
+    Added Lieferanten to Sekretariat
+
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     | 49 ++++++++++++++++++++--
+ .../java/tgm/sew/hit/roboterfabrik/Simulation.java |  4 +-
+ 2 files changed, 47 insertions(+), 6 deletions(-)
+
+commit 929dd3959877a9412eb8cc9f61f51703f825927d
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 18:05:46 2014 +0200
+
+    Added TestBauteil
+
+ .../tgm/sew/hit/roboterfabrik/bauteil/Bauteil.java   | 20 ++++++++++++++++----
+ src/test/java/au01/TestBauteil.java                  | 12 ++++++++----
+ 2 files changed, 24 insertions(+), 8 deletions(-)
+
+commit 5e42c377c9c19c73454df8f6e17f497ffc4d4d8e
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 18:03:44 2014 +0200
+
+    Added Watchdog and changed Mitarbeiter
+
+ .../hit/roboterfabrik/mitarbeiter/Mitarbeiter.java |  8 +++++-
+ .../tgm/sew/hit/roboterfabrik/util/Watchdog.java   | 33 ++++++++++++++++++++++
+ 2 files changed, 40 insertions(+), 1 deletion(-)
+
+commit 17656b9fde2f59e6a62fc7cfd046ca344bf1d026
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 17:24:42 2014 +0200
+
+    Fixed Lager
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java |  3 ++-
+ src/test/java/au01/TestBauteil.java                | 24 ++++++++++++++++++++--
+ 2 files changed, 24 insertions(+), 3 deletions(-)
+
+commit 91a71376f614ed2e72a60c331397debef4fce622
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 17:14:51 2014 +0200
+
+    Changed Logger and added ID to Lieferant.
+
+ .../roboterfabrik/mitarbeiter/Lagermitarbeiter.java    | 18 +++++++-----------
+ .../sew/hit/roboterfabrik/mitarbeiter/Lieferant.java   | 16 ++++++++++------
+ .../sew/hit/roboterfabrik/mitarbeiter/Mitarbeiter.java | 16 +++++++---------
+ 3 files changed, 24 insertions(+), 26 deletions(-)
+
+commit a81d34775793f2dc9b2b25b39d02f480cfe8051e
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Wed Oct 1 17:11:12 2014 +0200
+
+    Added printing helptext
+
+ .../java/tgm/sew/hit/roboterfabrik/Simulation.java |  4 ++++
+ .../util/RoboterFabrikArgumentParser.java          | 28 ++++++++++++++++------
+ 2 files changed, 25 insertions(+), 7 deletions(-)
+
+commit c6e651aeff271bb033c6d09c5efb307f504db979
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 16:47:39 2014 +0200
+
+    Added function for ArgumentParser.
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Simulation.java | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit ea472cff90dbf25b36d8719ab436842034e84492
+Merge: d1c337f 64266dd
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 16:46:34 2014 +0200
+
+    Merge branch 'master' of https://github.com/bhampl-tgm/A01-Nebenlaeufige_Roboterfabrik
+
+commit d1c337f32c420bdc4eac338560fe8f0c716d3da0
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Wed Oct 1 16:44:08 2014 +0200
+
+    Fixed resource folders
+
+ .classpath                                         |   1 +
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java |   2 +-
+ src/main/resources/empty                           |   0
+ src/main/resources/log4j2.xml                      |  26 +++++
+ src/test/java/au01/TestArgumentParser.java         | 116 ++++++++++-----------
+ src/test/java/au01/TestBauteil.java                |  14 +++
+ src/test/resources/empty                           |   0
+ src/test/resources/log4j2.xml                      |  26 -----
+ 8 files changed, 100 insertions(+), 85 deletions(-)
+
+commit 64266dd7c128f461cba2687897b3f0a3849304e1
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 16:38:48 2014 +0200
+
+    Changed Logging
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java         | 1 +
+ .../tgm/sew/hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java  | 2 +-
+ .../java/tgm/sew/hit/roboterfabrik/mitarbeiter/Mitarbeiter.java  | 9 +++++++--
+ .../sew/hit/roboterfabrik/mitarbeiter/Montagemitarbeiter.java    | 2 +-
+ 4 files changed, 10 insertions(+), 4 deletions(-)
+
+commit a1270047e66dd51fbf29106b68c011ec4e8f15ac
+Author: Patrick Malik <austria.p@hotmail.com>
+Date:   Wed Oct 1 16:23:50 2014 +0200
+
+    Added Logger
+
+ .../mitarbeiter/Lagermitarbeiter.java              |  9 +++++++-
+ .../hit/roboterfabrik/mitarbeiter/Mitarbeiter.java |  6 ++++-
+ .../mitarbeiter/Montagemitarbeiter.java            |  1 +
+ src/test/resources/empty                           |  0
+ src/test/resources/log4j2.xml                      | 26 ++++++++++++++++++++++
+ 5 files changed, 40 insertions(+), 2 deletions(-)
+
+commit 3abc59f6f364bb8ce58014f8111b7cda7b518fda
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Wed Oct 1 16:22:08 2014 +0200
+
+    Added TestArgumentParser and edited Simulation and
+    RoboterFabrikArgumentenParser
+
+ .../java/tgm/sew/hit/roboterfabrik/Simulation.java | 29 ++++++++++-
+ .../util/RoboterFabrikArgumentParser.java          | 24 ++++-----
+ src/test/java/au01/TestArgumentParser.java         | 58 ++++++++++++++++++++++
+ 3 files changed, 97 insertions(+), 14 deletions(-)
+
+commit 314eb6902ea2d82b2f2f31ce7bc929847f62f7f2
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Tue Sep 30 15:17:45 2014 +0200
+
+    Added Missing Files
+
+ .../hit/roboterfabrik/bauteil/BauteilSammlung.java | 69 ++++++++++++++++++++++
+ .../mitarbeiter/Lagermitarbeiter.java              | 62 +++++++++++++++++++
+ .../mitarbeiter/Montagemitarbeiter.java            | 35 +++++++++++
+ 3 files changed, 166 insertions(+)
+
+commit 810ffa0f17ff5b044919372e5a82429a00d6b303
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Tue Sep 30 15:17:16 2014 +0200
+
+    Added Bauteil Sammlung, Added Lagermitarbeiter and Montagemitarbeiter
+    back, synchronized lager
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java | 74 +++++++++++++++++++++-
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     | 12 ++--
+ .../java/tgm/sew/hit/roboterfabrik/Threadee.java   | 13 ++++
+ .../hit/roboterfabrik/mitarbeiter/Mitarbeiter.java | 11 +---
+ .../roboterfabrik/mitarbeiter/MitarbeiterTyp.java  | 23 -------
+ .../sew/hit/roboterfabrik/util/csv/CSVFile.java    | 15 ++++-
+ .../hit/roboterfabrik/util/csv/ExtendedRAF.java    |  4 +-
+ 7 files changed, 110 insertions(+), 42 deletions(-)
+
+commit 1e61de50a287447a5cd458ae2dd6906054da404c
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Tue Sep 30 08:23:08 2014 +0200
+
+    Finished Javadoc commenting
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java | 76 +++++++++++++++-------
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     |  7 ++
+ .../java/tgm/sew/hit/roboterfabrik/Threadee.java   |  7 ++
+ .../sew/hit/roboterfabrik/bauteil/BauteilTyp.java  |  7 ++
+ .../hit/roboterfabrik/mitarbeiter/Lieferant.java   |  9 +++
+ .../hit/roboterfabrik/mitarbeiter/Mitarbeiter.java |  8 +++
+ .../roboterfabrik/mitarbeiter/MitarbeiterTyp.java  |  7 ++
+ .../sew/hit/roboterfabrik/util/csv/CSVData.java    |  7 ++
+ .../sew/hit/roboterfabrik/util/csv/CSVFile.java    | 10 +++
+ .../sew/hit/roboterfabrik/util/csv/CSVLine.java    | 20 ++++++
+ .../hit/roboterfabrik/util/csv/ExtendedRAF.java    | 44 ++++++-------
+ 11 files changed, 157 insertions(+), 45 deletions(-)
+
+commit 71abdc762d68e1e7038edf48b350ea8d541f9e2b
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Mon Sep 29 21:17:53 2014 +0200
+
+    Added enums
+
+ .../tgm/sew/hit/roboterfabrik/bauteil/BauteilTyp.java    | 16 ++++++++++++++++
+ .../hit/roboterfabrik/mitarbeiter/MitarbeiterTyp.java    | 16 ++++++++++++++++
+ 2 files changed, 32 insertions(+)
+
+commit 822cd2ba28f113fdf2ac31e1ea4b57f13bbc041a
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Mon Sep 29 21:17:33 2014 +0200
+
+    Reworked Bauteile and Mitarbeiter, started Commenting
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java | 86 ++++++++--------------
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     | 29 +++++---
+ .../java/tgm/sew/hit/roboterfabrik/Threadee.java   | 43 ++++-------
+ .../tgm/sew/hit/roboterfabrik/bauteil/Arm.java     | 34 ---------
+ .../tgm/sew/hit/roboterfabrik/bauteil/Auge.java    | 33 ---------
+ .../tgm/sew/hit/roboterfabrik/bauteil/Bauteil.java | 76 ++++++++++++++++---
+ .../hit/roboterfabrik/bauteil/Kettenantrieb.java   | 33 ---------
+ .../tgm/sew/hit/roboterfabrik/bauteil/Rumpf.java   | 33 ---------
+ .../mitarbeiter/Lagermitarbeiter.java              | 25 -------
+ .../hit/roboterfabrik/mitarbeiter/Lieferant.java   | 28 ++++++-
+ .../hit/roboterfabrik/mitarbeiter/Mitarbeiter.java |  9 ++-
+ .../mitarbeiter/Montagemitarbeiter.java            | 20 -----
+ .../util/RoboterFabrikArgumentParser.java          |  4 +-
+ .../sew/hit/roboterfabrik/util/csv/CSVFile.java    | 62 ++++++++++++----
+ 14 files changed, 212 insertions(+), 303 deletions(-)
+
+commit 775a32114cec01f6247f43fffe8b8713210f06d7
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Mon Sep 29 09:50:18 2014 +0200
+
+    Merged changed of bhampl and sgeyer together
+
+ .classpath                                         |  11 +-
+ .gitignore                                         |   2 +
+ pom.xml                                            | 114 +++++++++++++++++++--
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java |  10 +-
+ 4 files changed, 113 insertions(+), 24 deletions(-)
+
+commit 4035669bd83db4f57bcce3d400406c05146195b9
+Author: Burkhard Hampl <bhampl@student.tgm.ac.at>
+Date:   Sat Sep 27 12:04:20 2014 +0200
+
+    Finished RoboterFabrikArgumentParser
+
+ .../util/RoboterFabrikArgumentParser.java          | 51 +++++++++++++++++-----
+ 1 file changed, 41 insertions(+), 10 deletions(-)
+
+commit 1709c689b4c74d18af2cc38bbe8aa800d6e64635
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Mon Sep 22 10:55:41 2014 +0200
+
+    Reworked Lager, saves and fetches data from RAF now
+
+ .settings/org.eclipse.jdt.core.prefs               |  14 ++-
+ pom.xml                                            |   8 +-
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java | 134 ++++++++++++++-------
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     |   2 +-
+ .../tgm/sew/hit/roboterfabrik/bauteil/Arm.java     |  24 ++++
+ .../tgm/sew/hit/roboterfabrik/bauteil/Auge.java    |  23 ++++
+ .../tgm/sew/hit/roboterfabrik/bauteil/Bauteil.java |  18 ++-
+ .../hit/roboterfabrik/bauteil/Kettenantrieb.java   |  23 ++++
+ .../tgm/sew/hit/roboterfabrik/bauteil/Rumpf.java   |  24 ++++
+ .../mitarbeiter/Lagermitarbeiter.java              |   5 +-
+ .../hit/roboterfabrik/mitarbeiter/Mitarbeiter.java |   8 +-
+ .../mitarbeiter/Montagemitarbeiter.java            |   5 +-
+ .../util/RoboterFabrikArgumentParser.java          |  35 ++++++
+ .../sew/hit/roboterfabrik/util/csv/CSVData.java    |  27 +++++
+ .../sew/hit/roboterfabrik/util/csv/CSVFile.java    |  66 ++++++++++
+ .../sew/hit/roboterfabrik/util/csv/CSVLine.java    |  52 ++++++++
+ .../hit/roboterfabrik/util/csv/ExtendedRAF.java    |  63 ++++++++++
+ 17 files changed, 463 insertions(+), 68 deletions(-)
+
+commit 36dc53667128e3ffb9f8bcbfc3471a4316600d1a
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Tue Sep 16 19:08:10 2014 +0200
+
+    Added JUnit dependency and added maven source plugin
+
+ pom.xml | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit a4ae85ba30ea7d3ce10b642fbe4cc52a9e0531ab
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Tue Sep 16 18:54:00 2014 +0200
+
+    Added consturctor to several classes
+
+ src/main/java/tgm/sew/hit/roboterfabrik/Sekretariat.java     |  2 +-
+ src/main/java/tgm/sew/hit/roboterfabrik/Simulation.java      |  8 ++++++++
+ src/main/java/tgm/sew/hit/roboterfabrik/bauteil/Arm.java     |  4 ++++
+ src/main/java/tgm/sew/hit/roboterfabrik/bauteil/Auge.java    |  4 ++++
+ src/main/java/tgm/sew/hit/roboterfabrik/bauteil/Bauteil.java |  4 ++++
+ .../tgm/sew/hit/roboterfabrik/bauteil/Kettenantrieb.java     |  4 ++++
+ src/main/java/tgm/sew/hit/roboterfabrik/bauteil/Rumpf.java   |  5 ++++-
+ .../sew/hit/roboterfabrik/mitarbeiter/Lagermitarbeiter.java  |  5 +++--
+ .../tgm/sew/hit/roboterfabrik/mitarbeiter/Mitarbeiter.java   | 12 +++++++++---
+ .../hit/roboterfabrik/mitarbeiter/Montagemitarbeiter.java    |  5 +++--
+ 10 files changed, 44 insertions(+), 9 deletions(-)
+
+commit 10a431b6c35a59e5e762e339e968b246f3bd8331
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Tue Sep 16 13:08:53 2014 +0200
+
+    Organized package structure
+
+ pom.xml                                            | 170 ++++++++++-----------
+ src/main/java/tgm/sew/hit/roboterfabrik/Arm.java   |   5 -
+ src/main/java/tgm/sew/hit/roboterfabrik/Auge.java  |   5 -
+ .../java/tgm/sew/hit/roboterfabrik/Bauteil.java    |  11 --
+ .../tgm/sew/hit/roboterfabrik/Kettenantrieb.java   |   5 -
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java |  97 +++++++++---
+ .../sew/hit/roboterfabrik/Lagermitarbeiter.java    |  23 ---
+ .../java/tgm/sew/hit/roboterfabrik/Lieferant.java  |   7 -
+ .../tgm/sew/hit/roboterfabrik/Mitarbeiter.java     |  11 --
+ .../sew/hit/roboterfabrik/Montagemitarbeiter.java  |  17 ---
+ src/main/java/tgm/sew/hit/roboterfabrik/Rumpf.java |   5 -
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     |  69 +++++----
+ .../java/tgm/sew/hit/roboterfabrik/Threadee.java   |  84 +++++-----
+ .../tgm/sew/hit/roboterfabrik/bauteil/Arm.java     |   6 +
+ .../tgm/sew/hit/roboterfabrik/bauteil/Auge.java    |   6 +
+ .../tgm/sew/hit/roboterfabrik/bauteil/Bauteil.java |  11 ++
+ .../hit/roboterfabrik/bauteil/Kettenantrieb.java   |   6 +
+ .../tgm/sew/hit/roboterfabrik/bauteil/Rumpf.java   |   6 +
+ .../mitarbeiter/Lagermitarbeiter.java              |  25 +++
+ .../hit/roboterfabrik/mitarbeiter/Lieferant.java   |   9 ++
+ .../hit/roboterfabrik/mitarbeiter/Mitarbeiter.java |  11 ++
+ .../mitarbeiter/Montagemitarbeiter.java            |  20 +++
+ 22 files changed, 338 insertions(+), 271 deletions(-)
+
+commit dbf5b376b7d59668ead4c08790a1f38621163787
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Tue Sep 16 12:26:28 2014 +0200
+
+    Attempt to remove target folder
+
+ pom.xml                                            | 170 ++++++++++-----------
+ src/main/java/tgm/sew/hit/roboterfabrik/Arm.java   |  10 +-
+ src/main/java/tgm/sew/hit/roboterfabrik/Auge.java  |  10 +-
+ .../java/tgm/sew/hit/roboterfabrik/Bauteil.java    |  22 +--
+ .../tgm/sew/hit/roboterfabrik/Kettenantrieb.java   |  10 +-
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java |  50 +++---
+ .../sew/hit/roboterfabrik/Lagermitarbeiter.java    |  46 +++---
+ .../java/tgm/sew/hit/roboterfabrik/Lieferant.java  |  14 +-
+ .../tgm/sew/hit/roboterfabrik/Mitarbeiter.java     |  22 +--
+ .../sew/hit/roboterfabrik/Montagemitarbeiter.java  |  34 ++---
+ src/main/java/tgm/sew/hit/roboterfabrik/Rumpf.java |  10 +-
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     |  66 ++++----
+ .../java/tgm/sew/hit/roboterfabrik/Threadee.java   |  78 +++++-----
+ target/classes/empty                               |   0
+ target/test-classes/empty                          |   0
+ 15 files changed, 271 insertions(+), 271 deletions(-)
+
+commit b32d3025ca149379ee96a42330fd8e20edf0d796
+Author: tgm-sgeyer <sgeyer@student.tgm.ac.at>
+Date:   Tue Sep 16 12:22:25 2014 +0200
+
+    Initial Commit
+
+ pom.xml                                            | 91 ++++++++++++++++++++--
+ src/main/java/tgm/sew/hit/roboterfabrik/Arm.java   |  2 +-
+ .../java/tgm/sew/hit/roboterfabrik/Threadee.java   |  2 +-
+ 3 files changed, 87 insertions(+), 8 deletions(-)
+
+commit 09f401492367bb11a0e7bb881a360a3e0896d2ce
+Author: tgm-sgeyer <exsoloscripter@gmail.com>
+Date:   Wed Sep 10 17:33:42 2014 +0200
+
+    Imported Astah Structures
+
+ .classpath                                         |  72 ++++++++++-----------
+ .gitignore                                         |   1 +
+ .project                                           |  46 ++++++-------
+ .settings/org.eclipse.jdt.core.prefs               |  10 +--
+ .settings/org.eclipse.m2e.core.prefs               |   8 +--
+ pom.xml                                            |  12 ++--
+ src/main/java/tgm/sew/hit/roboterfabrik/Arm.java   |   5 ++
+ src/main/java/tgm/sew/hit/roboterfabrik/Auge.java  |   5 ++
+ .../java/tgm/sew/hit/roboterfabrik/Bauteil.java    |  11 ++++
+ .../tgm/sew/hit/roboterfabrik/Kettenantrieb.java   |   5 ++
+ src/main/java/tgm/sew/hit/roboterfabrik/Lager.java |  25 +++++++
+ .../sew/hit/roboterfabrik/Lagermitarbeiter.java    |  23 +++++++
+ .../java/tgm/sew/hit/roboterfabrik/Lieferant.java  |   7 ++
+ .../tgm/sew/hit/roboterfabrik/Mitarbeiter.java     |  11 ++++
+ .../sew/hit/roboterfabrik/Montagemitarbeiter.java  |  17 +++++
+ src/main/java/tgm/sew/hit/roboterfabrik/Rumpf.java |   5 ++
+ .../tgm/sew/hit/roboterfabrik/Sekretariat.java     |  33 ++++++++++
+ .../java/tgm/sew/hit/roboterfabrik/Simulation.java |   5 --
+ .../java/tgm/sew/hit/roboterfabrik/Threadee.java   |  39 +++++++++++
+ .../tgm/sew/hit/roboterfabrik/Simulation.class     | Bin 307 -> 0 bytes
+ 20 files changed, 261 insertions(+), 79 deletions(-)
+
+commit f91f12623ac3ac33d0c461b1589a920b42034a5c
+Author: EXSolo <exsoloscripter@gmail.com>
+Date:   Wed Sep 10 17:02:43 2014 +0200
+
+    initial commit
+
+ .classpath                                         |  36 +++++++++++++++++++++
+ .project                                           |  23 +++++++++++++
+ .settings/org.eclipse.jdt.core.prefs               |   5 +++
+ .settings/org.eclipse.m2e.core.prefs               |   4 +++
+ pom.xml                                            |   7 ++++
+ .../java/tgm/sew/hit/roboterfabrik/Simulation.java |   5 +++
+ src/main/resources/empty                           |   0
+ src/test/java/empty                                |   0
+ src/test/resources/empty                           |   0
+ target/classes/empty                               |   0
+ .../tgm/sew/hit/roboterfabrik/Simulation.class     | Bin 0 -> 307 bytes
+ target/test-classes/empty                          |   0
+ 12 files changed, 80 insertions(+)
