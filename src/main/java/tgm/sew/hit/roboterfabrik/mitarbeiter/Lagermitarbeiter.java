@@ -17,7 +17,8 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
 public class Lagermitarbeiter extends Mitarbeiter {
 
 	private Lager lager;
-
+	private int tid;
+	
 	/**
 	 * Konstroktor des {@link Lagermitarbeiter}
 	 * 
@@ -29,6 +30,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	public Lagermitarbeiter(int id, Lager lager) {
 		super(id);
 		this.lager = lager;
+		setTid(0);
 	}
 
 	public boolean enoughParts() {
@@ -71,7 +73,9 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 */
 	public void threadeeEinlagern(Threadee t) {
 		getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + t.getId() + " eingelagert.");
+		t.toString().replace("@",""+tid);
 		this.lager.threadeeAblegen(t);
+		setTid(getTid()+1);
 	}
 
 	/**
@@ -87,7 +91,6 @@ public class Lagermitarbeiter extends Mitarbeiter {
 			if (teil != null) {
 				getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
 				this.lager.addTeil(teil);
-
 			} else {
 				// TODO log, das teil nicht ins lager geadded wird
 				getLogger().info("" + getClass() + " " + getId() + " hat ein ungültiges Teil welches übersprungen wurde");
@@ -100,5 +103,13 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	public void run() {
 		// TODO Lagermitarbeiter fertig machen
 
+	}
+	
+	public void setTid(int tid){
+		this.tid = tid;
+	}
+	
+	public int getTid(){
+		return this.tid;
 	}
 }
