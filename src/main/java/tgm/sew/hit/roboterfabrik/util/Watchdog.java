@@ -4,10 +4,10 @@ import tgm.sew.hit.roboterfabrik.mitarbeiter.Mitarbeiter;
 
 /*
  * 
- * Watchdog der nach der Runtime 
+ * Watchdog der nach der Runtime alle Threads beendet.
  * 
  * @author pmalik
- * @version 1.0
+ * @version 1.1
  */
 public class Watchdog implements Runnable {
 
