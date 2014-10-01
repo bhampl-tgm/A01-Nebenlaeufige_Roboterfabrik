@@ -33,6 +33,7 @@ public class Lager {
 	 */
 	public Lager(String dataDir) {
 		if (dataDir != null) {
+			File dir = new File(dataDir);
 			File fAugen = new File(dataDir, "augen.csv");
 			File fArme = new File(dataDir, "arme.csv");
 			File fAntriebe = new File(dataDir, "arme.csv");
@@ -40,7 +41,7 @@ public class Lager {
 			File fAuslieferung = new File(dataDir, "auslieferung.csv");
 			
 			// Verzeichnise werden erstellt falls nicht vorhanden
-			fAugen.mkdir();
+			dir.mkdir();
 
 			// Files erstellen
 			try {
