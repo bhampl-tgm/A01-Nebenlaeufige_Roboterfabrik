@@ -16,11 +16,10 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilTyp;
  */
 public class Lieferant {
 
-	private Bauteil teil;
+	private int id;
 	
-	public Bauteil getTeil() {
-		neuesTeil();
-		return this.teil;
+	public Lieferant(int id){
+		this.id = id;
 	}
 	
 	/**
@@ -29,7 +28,7 @@ public class Lieferant {
 	 * und zufaellingen daten
 	 * 
 	 */
-	public void neuesTeil() {
+	public Bauteil neuesTeil() {
 		BauteilTyp typ = BauteilTyp.values()[new Random().nextInt(BauteilTyp.values().length)];
 		int[] data = new int[20];
 		
@@ -38,7 +37,12 @@ public class Lieferant {
 			data[i] = new Random().nextInt(1000);
 		}
 		
-		this.teil = new Bauteil(typ, data);
+		Mitarbeiter.getLogger().trace(""+getClass()+" "+getId()+" hat das Bauteil "+typ.getName()+" geliefert.");
+		return new Bauteil(typ, data);
+	}
+	
+	public int getId(){
+		return this.id;
 	}
 
 }
