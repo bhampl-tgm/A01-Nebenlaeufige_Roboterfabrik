@@ -14,7 +14,9 @@ public abstract class Mitarbeiter {
 
 	private int id;
 	private static final Logger logger = LogManager.getLogger("Logger");
-
+	private boolean go;
+	
+	
 	public Mitarbeiter(int id) {
 		this.id = id;
 	}
@@ -25,6 +27,10 @@ public abstract class Mitarbeiter {
 
 	public static Logger getLogger() {
 		return logger;
+	}
+	
+	public void setGo(boolean go){
+		this.go = go;
 	}
 
 }
