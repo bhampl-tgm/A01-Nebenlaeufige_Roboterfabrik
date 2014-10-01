@@ -39,7 +39,7 @@ public class Lager {
 			File fAntriebe = new File(dataDir, "arme.csv");
 			File fRuempfe = new File(dataDir, "ruempfe.csv");
 			File fAuslieferung = new File(dataDir, "auslieferung.csv");
-			
+
 			// Verzeichnise werden erstellt falls nicht vorhanden
 			dir.mkdir();
 
@@ -95,10 +95,13 @@ public class Lager {
 
 	/**
 	 * 
-	 * Ueberprueft ob ein oder mehrere (bis zu amount) Teile des Typs im Lager liegen.
+	 * Ueberprueft ob ein oder mehrere (bis zu amount) Teile des Typs im Lager
+	 * liegen.
 	 * 
-	 * @param t Der Bauteiltyp
-	 * @param amount Wie oft
+	 * @param t
+	 *            Der Bauteiltyp
+	 * @param amount
+	 *            Wie oft
 	 * @return Ob das Teil im Lager liegt
 	 */
 	public boolean containsTeil(BauteilTyp t, int amount) {
@@ -125,19 +128,19 @@ public class Lager {
 				file.deleteLastLine();
 			else
 				return false;
-			
+
 			if (last.toString().length() != 0)
 				contains = true;
 			else
 				return false;
-			
+
 			file.writeLine(last);
-			
+
 			return contains;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return false;
 	}
 
@@ -176,16 +179,17 @@ public class Lager {
 
 		return null;
 	}
-	
+
 	/**
 	 * 
 	 * Speicher einen Threadee
 	 * 
-	 * @param t Der Threadee der gepseichert werden soll
+	 * @param t
+	 *            Der Threadee der gepseichert werden soll
 	 */
-	public void threadeeAblegen(Threadee t) {
+	public void threadeeAblegen(String t) {
 		try {
-			this.auslieferung.writeRaw(t.toString());
+			this.auslieferung.writeRaw(t);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
