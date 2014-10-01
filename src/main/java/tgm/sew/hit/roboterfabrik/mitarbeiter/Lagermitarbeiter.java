@@ -41,7 +41,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 
 				teile.add(this.lager.getBauteil(BauteilTyp.RUMPF));
 				
-				logger.trace(""+getClass()+" "+getId()+" hat sich ein Set teile aus dem Lager geholt.");
+				getLogger().trace(""+getClass()+" "+getId()+" hat sich ein Set teile aus dem Lager geholt.");
 				return teile.toArray(new Bauteil[0]);
 			}
 		}
