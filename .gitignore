@@ -3,3 +3,5 @@
 /final/
 /test.test
 /test/
+/${sys.log}
+/out/

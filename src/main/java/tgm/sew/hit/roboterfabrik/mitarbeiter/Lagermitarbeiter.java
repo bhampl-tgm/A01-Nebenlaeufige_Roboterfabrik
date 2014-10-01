@@ -34,7 +34,9 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	}
 
 	public boolean enoughParts() {
-		return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
+		synchronized (this.lager) {
+			return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
+		}
 	}
 
 	/**
@@ -99,10 +101,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	}
 
 	@Override
-	public void run() {
-		// TODO Lagermitarbeiter fertig machen
-
-	}
+	public void run() {}
 	
 	public void setTid(int tid){
 		this.tid = tid;
