@@ -27,7 +27,9 @@ public class Watchdog implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		threads[1].setGo(false);
+		for (int i = 0; i < threads.length; i++) {
+			threads[i].setGo(false);
+		}
 	}
 
 	public int getZeit() {
