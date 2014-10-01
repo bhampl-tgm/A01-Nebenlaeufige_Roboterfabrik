@@ -72,9 +72,11 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 *            {@link Threadee} der eingelagert wird
 	 */
 	public void threadeeEinlagern(Threadee t) {
-		getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + tid + " eingelagert.");
-		this.lager.threadeeAblegen(t.toString().replace("@",""+tid));
-		setTid(getTid()+1);
+		synchronized (this.lager) {
+			getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + tid + " eingelagert.");
+			this.lager.threadeeAblegen(t.toString().replace("@",""+tid));
+			setTid(getTid()+1);
+		}
 	}
 
 	/**
