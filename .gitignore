@@ -4,3 +4,5 @@
 /test.test
 /test/
 /${sys.log}
+/out/
+.gitignore/
