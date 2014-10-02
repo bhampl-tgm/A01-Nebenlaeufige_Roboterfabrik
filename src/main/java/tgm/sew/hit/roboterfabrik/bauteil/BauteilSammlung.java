@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Erweitertes {@link Bauteil} Array welches auf gueltigkeit ueberprueft werden kann
+ * Erweitertes {@link Bauteil} Array welches auf gueltigkeit ueberprueft werden
+ * kann
  * 
  * @author Stefan Geyer
  * @version 1.0
@@ -20,29 +21,35 @@ public class BauteilSammlung {
 
 	/**
 	 * 
-	 * Ueberprueft ob ein Teil mit dem angegebenen Teiltyp in den Teilen vorhanden ist
+	 * Ueberprueft ob ein Teil mit dem angegebenen Teiltyp in den Teilen
+	 * vorhanden ist
 	 * 
-	 * @param t Der Teiltyp
+	 * @param t
+	 *            Der Teiltyp
 	 * @return Ob der Typ vorhanden ist oder nicht
 	 */
 	private boolean containsBauteilTyp(BauteilTyp t) {
 		return this.containsBauteilTyp(t, 1);
 	}
-	
+
 	/**
 	 * 
-	 * Ueberprueft ob ein Teil mit dem angegebenen Teiltyp in den Teilen vorhanden ist.
+	 * Ueberprueft ob ein Teil mit dem angegebenen Teiltyp in den Teilen
+	 * vorhanden ist.
 	 * 
-	 * @param t Der Teiltyp
-	 * @param amount Wie oft mindestens
+	 * @param t
+	 *            Der Teiltyp
+	 * @param amount
+	 *            Wie oft mindestens
 	 * @return Ob der Typ vorhanden ist oder nicht
 	 */
 	private boolean containsBauteilTyp(BauteilTyp t, int amount) {
 		List<Bauteil> passende = new ArrayList<Bauteil>();
-		
+
 		for (Bauteil b : this.teile) {
-			if (b.getTyp() == t)
-				passende.add(b);
+			if (b != null)
+				if (b.getTyp() == t)
+					passende.add(b);
 		}
 
 		return (passende.size() >= amount);
@@ -57,10 +64,13 @@ public class BauteilSammlung {
 	public boolean isValid() {
 		boolean valid = true;
 
-		if (!containsBauteilTyp(BauteilTyp.AUGE, 2) || !containsBauteilTyp(BauteilTyp.ARM, 2) || !containsBauteilTyp(BauteilTyp.KETTENANTRIEB) || !containsBauteilTyp(BauteilTyp.RUMPF))
-			valid = false;
+		if (this.teile != null) {
+			if (!containsBauteilTyp(BauteilTyp.AUGE, 2) || !containsBauteilTyp(BauteilTyp.ARM, 2) || !containsBauteilTyp(BauteilTyp.KETTENANTRIEB) || !containsBauteilTyp(BauteilTyp.RUMPF))
+				valid = false;
 
-		return valid;
+			return valid;
+		} else
+			return false;
 	}
 
 	public Bauteil[] getTeile() {

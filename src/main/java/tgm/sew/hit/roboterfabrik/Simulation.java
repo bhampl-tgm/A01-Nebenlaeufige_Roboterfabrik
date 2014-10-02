@@ -19,18 +19,14 @@ public class Simulation {
 	 *            die Kommandozielenargumente
 	 */
 	public static void main(String[] args) {
-		
-				
 		try {
 			Map<String, String> param = RoboterFabrikArgumentParser.parseArgs(args);
 			System.setProperty("log", "" + param.get("logs"));
-			Sekretariat sk = new Sekretariat(Integer.parseInt(param.get("monteure")), Integer.parseInt(param.get("lieferanten")), param.get("lager"), Integer.parseInt(param.get("laufzeit")));
+			new Sekretariat(Integer.parseInt(param.get("monteure")), Integer.parseInt(param.get("lieferanten")), param.get("lager"), Integer.parseInt(param.get("laufzeit")));
 		} catch (ParseException e) {
-			System.err.println("Error while parsing: " + e.getMessage());
 			RoboterFabrikArgumentParser.printHelp();
 			System.exit(1);
 		} catch (NumberFormatException e) {
-			System.err.println("Error while parsing: montuere and lieferanten must be int");
 			RoboterFabrikArgumentParser.printHelp();
 			System.exit(1);
 		} catch (Exception e) {

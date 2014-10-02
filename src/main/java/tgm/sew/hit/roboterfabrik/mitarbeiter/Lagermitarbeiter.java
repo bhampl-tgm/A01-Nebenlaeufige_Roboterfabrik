@@ -77,8 +77,8 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 */
 	public void threadeeEinlagern(Threadee t) {
 		synchronized (this.lagerLock) {
-			getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + tid + " eingelagert.");
 			this.lager.threadeeAblegen(t.toString().replace("@", "" + tid));
+			getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + tid + " eingelagert.");
 			setTid(getTid() + 1);
 		}
 	}
@@ -97,7 +97,6 @@ public class Lagermitarbeiter extends Mitarbeiter {
 				getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
 				this.lager.addTeil(teil);
 			} else {
-				// TODO log, das teil nicht ins lager geadded wird
 				getLogger().info("" + getClass() + " " + getId() + " hat ein ungültiges Teil welches übersprungen wurde");
 			}
 

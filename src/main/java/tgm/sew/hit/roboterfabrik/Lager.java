@@ -1,6 +1,8 @@
 package tgm.sew.hit.roboterfabrik;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 import tgm.sew.hit.roboterfabrik.bauteil.Bauteil;
@@ -18,6 +20,8 @@ import tgm.sew.hit.roboterfabrik.util.csv.CSVLine;
  */
 public class Lager {
 
+	private String dir;
+
 	private CSVFile augen;
 	private CSVFile arme;
 	private CSVFile antriebe;
@@ -32,12 +36,13 @@ public class Lager {
 	 *            Das Verzeichnis in welches die Files gespeichert werden
 	 */
 	public Lager(String dataDir) {
+		this.dir = dataDir;
 		if (dataDir != null) {
 			File dir = new File(dataDir);
-			File fAugen = new File(dataDir, "augen.csv");
-			File fArme = new File(dataDir, "arme.csv");
-			File fAntriebe = new File(dataDir, "kettenantriebe.csv");
-			File fRuempfe = new File(dataDir, "ruempfe.csv");
+			File fAugen = new File(dataDir, "auge.csv");
+			File fArme = new File(dataDir, "arm.csv");
+			File fAntriebe = new File(dataDir, "kettenantrieb.csv");
+			File fRuempfe = new File(dataDir, "rumpf.csv");
 			File fAuslieferung = new File(dataDir, "auslieferung.csv");
 
 			// Verzeichnise werden erstellt falls nicht vorhanden
@@ -105,38 +110,19 @@ public class Lager {
 	 * @return Ob das Teil im Lager liegt
 	 */
 	public boolean containsTeil(BauteilTyp t, int amount) {
-		CSVFile file = null;
-
-		switch (t) {
-		case AUGE:
-			file = this.augen;
-			break;
-		case ARM:
-			file = this.arme;
-			break;
-		case KETTENANTRIEB:
-			file = this.antriebe;
-			break;
-		case RUMPF:
-			file = this.ruempfe;
-		}
-
 		try {
-			boolean contains = false;
-			CSVLine last = file.getLastLine();
-			if (last.toString().length() != 0)
-				file.deleteLastLine();
-			else
-				return false;
+			BufferedReader br = new BufferedReader(new FileReader(new File(this.dir, t.getName().toLowerCase() + ".csv")));
 
-			if (last.toString().length() != 0)
-				contains = true;
-			else
-				return false;
+			for (int i = 0; i < amount; i++) {
+				if (br.readLine() == null) {
+					br.close();
+					return false;
+				}
+			}
 
-			file.writeLine(last);
-
-			return contains;
+			br.close();
+			
+			return true;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -174,7 +160,7 @@ public class Lager {
 				return rumpf;
 			}
 		} catch (IOException e) {
-
+			e.printStackTrace();
 		}
 
 		return null;
