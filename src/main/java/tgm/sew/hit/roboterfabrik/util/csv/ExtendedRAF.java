@@ -27,19 +27,9 @@ public class ExtendedRAF extends RandomAccessFile {
 	 * @throws IOException
 	 */
 	public String readLastLine() throws IOException {
-		StringBuilder builder = new StringBuilder();
 		long length = this.length() - 1;
 		this.seek(length);
-		for (long seek = length; seek >= 0; --seek) {
-			this.seek(seek);
-			char c = (char) this.read();
-			builder.append(c);
-			if (c == '\n') {
-				builder = builder.reverse();
-			}
-		}
-
-		return builder.toString();
+		return this.readLine();
 	}
 	
 	/**
@@ -50,7 +40,6 @@ public class ExtendedRAF extends RandomAccessFile {
 	 */
 	public void deleteLastLine() throws IOException {
 		long length = this.length();
-		//long length = this.length()-1; //bug fix versucht
 		byte b = this.readByte();
 		do {
 			length -= 1;

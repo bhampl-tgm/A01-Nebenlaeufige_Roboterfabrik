@@ -18,7 +18,8 @@ public class Lagermitarbeiter extends Mitarbeiter {
 
 	private Lager lager;
 	private int tid;
-	
+	private Object lagerLock;
+
 	/**
 	 * Konstroktor des {@link Lagermitarbeiter}
 	 * 
@@ -29,12 +30,15 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 */
 	public Lagermitarbeiter(int id, Lager lager) {
 		super(id);
+		this.lagerLock = new Object();
 		this.lager = lager;
 		setTid(0);
 	}
 
 	public boolean enoughParts() {
-		return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
+		synchronized (this.lagerLock) {
+			return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
+		}
 	}
 
 	/**
@@ -43,7 +47,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 * @return die {@link Bauteil}
 	 */
 	public Bauteil[] teileBereitstellen() {
-		synchronized (this.lager) {
+		synchronized (this.lagerLock) {
 			if (enoughParts()) {
 				List<Bauteil> teile = new ArrayList<Bauteil>();
 
@@ -72,10 +76,10 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 *            {@link Threadee} der eingelagert wird
 	 */
 	public void threadeeEinlagern(Threadee t) {
-		synchronized (this.lager) {
+		synchronized (this.lagerLock) {
 			getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + tid + " eingelagert.");
-			this.lager.threadeeAblegen(t.toString().replace("@",""+tid));
-			setTid(getTid()+1);
+			this.lager.threadeeAblegen(t.toString().replace("@", "" + tid));
+			setTid(getTid() + 1);
 		}
 	}
 
@@ -86,7 +90,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 *            die {@link Bauteil}
 	 */
 	public void teilEinlagern(Bauteil teil) {
-		synchronized (this.lager) {
+		synchronized (this.lagerLock) {
 			// Teile werden nur eingelagert wenn sie nicht null sind
 
 			if (teil != null) {
@@ -105,12 +109,12 @@ public class Lagermitarbeiter extends Mitarbeiter {
 		// TODO Lagermitarbeiter fertig machen
 
 	}
-	
-	public void setTid(int tid){
+
+	public void setTid(int tid) {
 		this.tid = tid;
 	}
-	
-	public int getTid(){
+
+	public int getTid() {
 		return this.tid;
 	}
 }

@@ -43,7 +43,10 @@ public class Montagemitarbeiter extends Mitarbeiter {
 	public void baueThreadee(Bauteil[] teile) {
 		if (new BauteilSammlung(teile).isValid()) {
 			getLogger().info("" + getClass() + " " + getId() + " hat den Threadee fertiggestellt.");
-			lm.threadeeEinlagern(new Threadee(-1, getId(), teile));
+			Threadee t = new Threadee(-1, getId(), teile);
+			for (Bauteil b : t.getBauteile())
+				b.sortData();
+			lm.threadeeEinlagern(t);
 		}
 
 	}

@@ -1,6 +1,7 @@
 package tgm.sew.hit.roboterfabrik.bauteil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,6 +20,10 @@ public class Bauteil {
 	public Bauteil(BauteilTyp typ, int[] data) {
 		this.typ = typ;
 		this.data = data;
+	}
+	
+	public void sortData() {
+		Arrays.sort(data);
 	}
 
 	public void setData(int[] data) {
