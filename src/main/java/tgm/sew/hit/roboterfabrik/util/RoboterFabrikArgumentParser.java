@@ -71,7 +71,7 @@ public class RoboterFabrikArgumentParser {
 	/**
 	 * Gibt den Helptext aus
 	 */
-	public static void printHalp() {
+	public static void printHelp() {
 		HelpFormatter formatter = new HelpFormatter();
 		formatter.printHelp("Simulation der RoboterFabrik", RoboterFabrikArgumentParser.options);
 	}
