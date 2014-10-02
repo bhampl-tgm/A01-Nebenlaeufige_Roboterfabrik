@@ -57,7 +57,7 @@ public class TestLagermitarbeiter {
 	
 	@Test
 	public void test_teileBereitstellen2(){
-		Lager lager = new Lager("testlager");
+		Lager lager = new Lager("testlager2");
 		lager.addTeil( new Bauteil(BauteilTyp.ARM, new int[] { 7, 8, 9 }));
 		lager.addTeil( new Bauteil(BauteilTyp.ARM, new int[] { 7, 8, 9 }));
 		lager.addTeil( new Bauteil(BauteilTyp.AUGE, new int[] { 7, 8, 9 }));
