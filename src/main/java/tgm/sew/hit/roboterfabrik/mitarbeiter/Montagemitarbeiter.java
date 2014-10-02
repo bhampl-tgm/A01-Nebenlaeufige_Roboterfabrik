@@ -11,6 +11,7 @@ import tgm.sew.hit.roboterfabrik.bauteil.BauteilSammlung;
  * 
  * @author Stefan Geyer
  * @author Burkhard Hampl
+ * @author Patrick Malik
  * @version 1.0
  */
 public class Montagemitarbeiter extends Mitarbeiter {
