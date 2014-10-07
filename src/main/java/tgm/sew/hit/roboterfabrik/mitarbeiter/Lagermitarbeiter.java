@@ -35,6 +35,12 @@ public class Lagermitarbeiter extends Mitarbeiter {
 		setTid(0);
 	}
 
+	/**
+	 * 
+	 * Ueberprueft ob das Lager mindestens ein Teil pro Typ enthaelt.
+	 * 
+	 * @return Ob genug Teile da sind.
+	 */
 	public boolean enoughParts() {
 		synchronized (this.lagerLock) {
 			return (this.lager.containsTeil(BauteilTyp.ARM, 2) && this.lager.containsTeil(BauteilTyp.AUGE, 2) && this.lager.containsTeil(BauteilTyp.KETTENANTRIEB, 1) && this.lager.containsTeil(BauteilTyp.RUMPF, 1));
@@ -61,6 +67,10 @@ public class Lagermitarbeiter extends Mitarbeiter {
 
 				teile.add(this.lager.getBauteil(BauteilTyp.RUMPF));
 
+				for (Bauteil b : teile)
+					if (b == null)
+						return null;
+				
 				getLogger().info("" + getClass() + " " + getId() + " hat sich ein Set teile aus dem Lager geholt.");
 				return teile.toArray(new Bauteil[0]);
 			}
@@ -77,6 +87,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 	 */
 	public void threadeeEinlagern(Threadee t) {
 		synchronized (this.lagerLock) {
+			// Wildcard mit Threadee ID ersetzen
 			this.lager.threadeeAblegen(t.toString().replace("@", "" + tid));
 			getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + tid + " eingelagert.");
 			setTid(getTid() + 1);
@@ -105,7 +116,6 @@ public class Lagermitarbeiter extends Mitarbeiter {
 
 	@Override
 	public void run() {
-		// TODO Lagermitarbeiter fertig machen
 
 	}
 

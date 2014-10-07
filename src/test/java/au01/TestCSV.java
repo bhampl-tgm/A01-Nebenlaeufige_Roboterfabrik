@@ -79,7 +79,7 @@ public class TestCSV {
 		try {
 			cf.writeLine(CSVLine.parseLine("1,2,3,4", ','));
 			cf.writeRaw("1,2,3,4,5,6");
-			cf.deleteLastLine();
+			cf.readAndDeleteLastLine();
 			cf.getLastLine();
 		} catch (IOException e) {
 			e.printStackTrace();

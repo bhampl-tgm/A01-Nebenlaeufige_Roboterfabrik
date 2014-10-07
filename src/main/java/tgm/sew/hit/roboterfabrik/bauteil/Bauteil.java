@@ -21,7 +21,7 @@ public class Bauteil {
 		this.typ = typ;
 		this.data = data;
 	}
-	
+
 	public void sortData() {
 		Arrays.sort(data);
 	}
@@ -44,12 +44,12 @@ public class Bauteil {
 
 	/**
 	 * 
-	 * Konvertiert einen String in in Bauteil.
-	 * Als seperator wird , verwendet und das erste Element
-	 * muss der BauteilTyp sein. Alle nachfolgenden Zahlen
+	 * Konvertiert einen String in in Bauteil. Als seperator wird , verwendet
+	 * und das erste Element muss der BauteilTyp sein. Alle nachfolgenden Zahlen
 	 * werden zum daten Array hinzugefuegt.
 	 * 
-	 * @param line Die zu parsende Zeile
+	 * @param line
+	 *            Die zu parsende Zeile
 	 * @return Das verarbeitete Bauteil
 	 */
 	public static Bauteil parseCSVString(String line) {
@@ -60,25 +60,30 @@ public class Bauteil {
 			// Stelle 0 ist der typ, alles danach sind die daten
 			List<Integer> dataList = new ArrayList<Integer>();
 			int[] data = null;
-			
+
 			for (int i = 0; i < items.length; i++) {
 				try {
 					dataList.add(Integer.parseInt(items[i]));
 				} catch (NumberFormatException e) {
-					//TODO log invalid bauteil
-					return null;
+					continue;
 				}
 			}
-			
+
 			data = new int[dataList.size()];
-			
+
 			for (int i = 0; i < dataList.size(); i++) {
 				data[i] = dataList.get(i);
 			}
-			
-			// Bauteil vom String holen
-			BauteilTyp b = BauteilTyp.valueOf(items[0].toUpperCase());
 
+			// Bauteil vom String holen
+			BauteilTyp b = null;
+			
+			try {
+				b = BauteilTyp.valueOf(items[0].toUpperCase());
+			} catch (IllegalArgumentException e) {
+				//TODO Lager out of stock
+			}
+			
 			if (b != null) {
 				return new Bauteil(b, data);
 			}
@@ -103,4 +108,5 @@ public class Bauteil {
 
 		return out;
 	}
+
 }

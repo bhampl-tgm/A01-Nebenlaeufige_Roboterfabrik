@@ -47,9 +47,11 @@ public class BauteilSammlung {
 		List<Bauteil> passende = new ArrayList<Bauteil>();
 
 		for (Bauteil b : this.teile) {
-			if (b != null)
-				if (b.getTyp() == t)
+			if (b != null) {
+				if (b.getTyp() == t) {
 					passende.add(b);
+				}
+			}
 		}
 
 		return (passende.size() >= amount);

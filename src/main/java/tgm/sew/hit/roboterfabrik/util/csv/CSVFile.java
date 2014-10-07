@@ -6,7 +6,8 @@ import java.io.IOException;
 
 /**
  * 
- * Diese Klasse hat das {@link ExtendedRAF} und die aus dem File geparste {@link CSVData}
+ * Diese Klasse hat das {@link ExtendedRAF} und die aus dem File geparste
+ * {@link CSVData}
  * 
  * @author Stefan Geyer
  * @version 1.0
@@ -16,7 +17,8 @@ public class CSVFile {
 	private ExtendedRAF raf;
 
 	/**
-	 * @param f File aus dem gelesen und auf dem schrieben wird.
+	 * @param f
+	 *            File aus dem gelesen und auf dem schrieben wird.
 	 */
 	public CSVFile(File f) {
 		try {
@@ -34,18 +36,39 @@ public class CSVFile {
 	 * @throws IOException
 	 */
 	public void writeLine(CSVLine line) throws IOException {
-		this.raf.writeBytes(line.toString() + "\r\n");
+		this.raf.seek(this.raf.length());
+		if (this.raf.length() > 0)
+			this.raf.writeBytes("\n" + line.toString());
+		else
+			this.raf.writeBytes(line.toString());
 	}
-	
+
 	/**
 	 * 
 	 * Schreibt ungeparsets CSV ins file
 	 * 
-	 * @param rawCSV CSV String
-	 * @throws IOException 
+	 * @param rawCSV
+	 *            CSV String
+	 * @throws IOException
 	 */
 	public void writeRaw(String rawCSV) throws IOException {
-		this.raf.writeBytes(rawCSV + "\r\n");
+		this.raf.seek(this.raf.length());
+		if (this.raf.length() > 0)
+			this.raf.writeBytes("\n" + rawCSV);
+		else
+			this.raf.writeBytes(rawCSV);
+	}
+	
+	/**
+	 * 
+	 * Ueberprueft ob das File eine gewisse anzahl an Zeilen beinhaelt
+	 * 
+	 * @param amount Die Anzahl der Zeilen
+	 * @return Ob das File die Zeilen Enthaelt
+	 * @throws IOException
+	 */
+	public boolean hasLine(int amount) throws IOException {
+		return this.raf.hasLine(amount);
 	}
 
 	/**
@@ -63,7 +86,7 @@ public class CSVFile {
 	 * 
 	 * @throws IOException
 	 */
-	public void deleteLastLine() throws IOException {
-		this.raf.deleteLastLine();
+	public String readAndDeleteLastLine() throws IOException {
+		return this.raf.readAndDeleteLastLine();
 	}
 }

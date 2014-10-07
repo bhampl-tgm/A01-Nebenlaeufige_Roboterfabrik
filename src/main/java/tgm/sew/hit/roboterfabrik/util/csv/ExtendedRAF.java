@@ -1,7 +1,9 @@
 package tgm.sew.hit.roboterfabrik.util.csv;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -15,10 +17,39 @@ import java.io.RandomAccessFile;
  */
 public class ExtendedRAF extends RandomAccessFile {
 
+	private File file;
+	
 	public ExtendedRAF(File file, String mode) throws FileNotFoundException {
 		super(file, mode);
+		this.file = file;
 	}
 
+	/**
+	 * 
+	 * Ueberprueft ob das File eine gewisse anzahl an Zeilen beinhaelt
+	 * 
+	 * @param amount Die Anzahl der Zeilen
+	 * @return Ob das File die Zeilen Enthaelt
+	 * @throws IOException
+	 */
+	public boolean hasLine(int amount) throws IOException {
+		if (amount > -1) {
+			BufferedReader br = new BufferedReader(new FileReader(this.file));
+			for (int i = 0; i < amount; i++) {
+				if (br.readLine() == null) {
+					System.out.println(i);
+					br.close();
+					return false;
+				}
+			}
+			
+			br.close();
+			return true;
+		}
+		
+		return false;
+	}
+	
 	/**
 	 * 
 	 * Liesst die letzte Zeile aus einem File
@@ -27,7 +58,7 @@ public class ExtendedRAF extends RandomAccessFile {
 	 * @throws IOException
 	 */
 	public String readLastLine() throws IOException {
-		long length = this.length() - 1L;
+		long length = this.length() - 1;
 		StringBuilder sb = new StringBuilder();
 		long cursor = 0;
 		for (cursor = length; cursor != -1; cursor -= 1) {
@@ -58,19 +89,25 @@ public class ExtendedRAF extends RandomAccessFile {
 	 * 
 	 * @throws IOException
 	 */
-	public void deleteLastLine() throws IOException {
-		long length = this.length() - 1;
-		for (long cursor = length; cursor > -1; cursor -= 1) {
-			if (cursor == 0) {
+	public String readAndDeleteLastLine() throws IOException {
+		long length = this.length();
+		StringBuffer sb = new StringBuffer();
+		byte b = 0;
+		
+		do {
+			length -= 1;
+			if (length == -1) {
 				this.setLength(0);
-				return;
+				return "";
+			} else {
+				this.seek(length);
 			}
-			this.seek(cursor);
-			byte readByte = this.readByte();
-			if (readByte == 10) {
-				this.setLength(cursor);
-				return;
-			}
-		}
+			b = this.readByte();
+			if (b != 10)
+				sb.append((char) b);
+		} while (b != 10 && length > 0);
+		
+		this.setLength(length);
+		return sb.reverse().toString();
 	}
 }

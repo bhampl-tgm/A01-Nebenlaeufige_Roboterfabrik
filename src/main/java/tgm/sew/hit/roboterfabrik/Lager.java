@@ -1,8 +1,6 @@
 package tgm.sew.hit.roboterfabrik;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 import tgm.sew.hit.roboterfabrik.bauteil.Bauteil;
@@ -20,8 +18,6 @@ import tgm.sew.hit.roboterfabrik.util.csv.CSVLine;
  */
 public class Lager {
 
-	private String dir;
-
 	private CSVFile augen;
 	private CSVFile arme;
 	private CSVFile antriebe;
@@ -36,7 +32,6 @@ public class Lager {
 	 *            Das Verzeichnis in welches die Files gespeichert werden
 	 */
 	public Lager(String dataDir) {
-		this.dir = dataDir;
 		if (dataDir != null) {
 			File dir = new File(dataDir);
 			File fAugen = new File(dataDir, "auge.csv");
@@ -110,19 +105,24 @@ public class Lager {
 	 * @return Ob das Teil im Lager liegt
 	 */
 	public boolean containsTeil(BauteilTyp t, int amount) {
+		CSVFile file = null;
+
+		switch (t) {
+		case AUGE:
+			file = this.augen;
+			break;
+		case ARM:
+			file = this.arme;
+			break;
+		case KETTENANTRIEB:
+			file = this.antriebe;
+			break;
+		case RUMPF:
+			file = this.ruempfe;
+		}
+
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(new File(this.dir, t.getName().toLowerCase() + ".csv")));
-
-			for (int i = 0; i < amount; i++) {
-				if (br.readLine() == null) {
-					br.close();
-					return false;
-				}
-			}
-
-			br.close();
-			
-			return true;
+			return file.hasLine(amount);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -140,30 +140,28 @@ public class Lager {
 	 */
 	public Bauteil getBauteil(BauteilTyp t) {
 
+		System.out.println("test");
+		Bauteil b = null;
 		try {
 			switch (t) {
 			case AUGE:
-				Bauteil auge = Bauteil.parseCSVString(this.augen.getLastLine().toString());
-				this.augen.deleteLastLine();
-				return auge;
+				String auge = this.augen.readAndDeleteLastLine().toString();
+				System.out.println(auge);
+				b = Bauteil.parseCSVString(auge);
 			case ARM:
-				Bauteil arm = Bauteil.parseCSVString(this.arme.getLastLine().toString());
-				this.arme.deleteLastLine();
-				return arm;
+				String arme = this.arme.readAndDeleteLastLine().toString();
+				System.out.println(arme);
+				b = Bauteil.parseCSVString(arme);
 			case KETTENANTRIEB:
-				Bauteil kettenantrieb = Bauteil.parseCSVString(this.antriebe.getLastLine().toString());
-				this.antriebe.deleteLastLine();
-				return kettenantrieb;
+				b = Bauteil.parseCSVString(this.antriebe.readAndDeleteLastLine().toString());
 			case RUMPF:
-				Bauteil rumpf = Bauteil.parseCSVString(this.ruempfe.getLastLine().toString());
-				this.ruempfe.deleteLastLine();
-				return rumpf;
+				b = Bauteil.parseCSVString(this.ruempfe.readAndDeleteLastLine().toString());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		return null;
+		return b;
 	}
 
 	/**

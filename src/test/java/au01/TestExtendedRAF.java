@@ -16,6 +16,6 @@ public class TestExtendedRAF {
 		eraf.writeBytes("test1\n");
 		eraf.writeBytes("test2\n");
 		eraf.readLastLine();
-		eraf.deleteLastLine();
+		eraf.readAndDeleteLastLine();
 	}
 }

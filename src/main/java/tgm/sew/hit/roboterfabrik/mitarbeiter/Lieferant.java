@@ -40,7 +40,7 @@ public class Lieferant extends Mitarbeiter implements Runnable{
 			data[i] = new Random().nextInt(1000);
 		}
 
-		Mitarbeiter.getLogger().info("" + getClass() + " " + getId() + " hat das Bauteil " + typ.getName() + " geliefert.");
+		Mitarbeiter.getLogger().info("Lieferant " + getId() + " hat das Bauteil " + typ.getName() + " geliefert.");
 		return new Bauteil(typ, data);
 	}
 
