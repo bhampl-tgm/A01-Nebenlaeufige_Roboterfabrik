@@ -140,17 +140,14 @@ public class Lager {
 	 */
 	public Bauteil getBauteil(BauteilTyp t) {
 
-		System.out.println("test");
 		Bauteil b = null;
 		try {
 			switch (t) {
 			case AUGE:
 				String auge = this.augen.readAndDeleteLastLine().toString();
-				System.out.println(auge);
 				b = Bauteil.parseCSVString(auge);
 			case ARM:
 				String arme = this.arme.readAndDeleteLastLine().toString();
-				System.out.println(arme);
 				b = Bauteil.parseCSVString(arme);
 			case KETTENANTRIEB:
 				b = Bauteil.parseCSVString(this.antriebe.readAndDeleteLastLine().toString());

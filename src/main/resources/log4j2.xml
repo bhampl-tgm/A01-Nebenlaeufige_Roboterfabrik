@@ -19,7 +19,7 @@
 			und nicht überschrieben) -->
 		<File name="employee-log" fileName="${sys:log}/employee.log"
 			append="false">
-			<PatternLayout pattern="%d{HH:mm:ss.SSS} %c %msg%xEx%n" />
+			<PatternLayout pattern="[%d{HH:mm:ss.SSS} - %-5level] - %msg%n" />
 		</File>
 	</Appenders>
 	<!-- Noch nicht sicher was das root level bewirkt, nur das bei error, debug, 

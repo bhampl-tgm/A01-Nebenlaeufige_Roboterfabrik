@@ -37,7 +37,6 @@ public class ExtendedRAF extends RandomAccessFile {
 			BufferedReader br = new BufferedReader(new FileReader(this.file));
 			for (int i = 0; i < amount; i++) {
 				if (br.readLine() == null) {
-					System.out.println(i);
 					br.close();
 					return false;
 				}

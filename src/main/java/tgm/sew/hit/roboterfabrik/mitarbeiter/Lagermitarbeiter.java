@@ -71,7 +71,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 					if (b == null)
 						return null;
 				
-				getLogger().info("" + getClass() + " " + getId() + " hat sich ein Set teile aus dem Lager geholt.");
+				getLogger().info("Lagermitarbeiter " + getId() + " hat sich ein Set teile aus dem Lager geholt.");
 				return teile.toArray(new Bauteil[0]);
 			}
 		}
@@ -89,7 +89,7 @@ public class Lagermitarbeiter extends Mitarbeiter {
 		synchronized (this.lagerLock) {
 			// Wildcard mit Threadee ID ersetzen
 			this.lager.threadeeAblegen(t.toString().replace("@", "" + tid));
-			getLogger().info("" + getClass() + " " + getId() + " hat einen Threadee mit der ID " + tid + " eingelagert.");
+			getLogger().info("Lagermitarbeiter " + getId() + " hat einen Threadee mit der ID " + tid + " eingelagert.");
 			setTid(getTid() + 1);
 		}
 	}
@@ -105,10 +105,10 @@ public class Lagermitarbeiter extends Mitarbeiter {
 			// Teile werden nur eingelagert wenn sie nicht null sind
 
 			if (teil != null) {
-				getLogger().info("" + getClass() + " " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
+				getLogger().info("Lagermitarbeiter " + getId() + " hat ein Bauteil der Art " + teil.getTyp().getName() + " eingelagert");
 				this.lager.addTeil(teil);
 			} else {
-				getLogger().info("" + getClass() + " " + getId() + " hat ein ungültiges Teil welches übersprungen wurde");
+				getLogger().info("Lagermitarbeiter " + getId() + " hat ein ungültiges Teil welches übersprungen wurde");
 			}
 
 		}
